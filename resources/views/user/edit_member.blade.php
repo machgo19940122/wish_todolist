@@ -3,40 +3,57 @@
 @section('content')
 
 <div class="container">
-    <nav>
-      <form>
-          <div><h1>会員情報編集</h1></div>
-            <form method="POST" action="">
+    <div>
+        <div>
+            <div>
+                <div><h1>会員登録情報修正</h1></div>
 
-            <label for="user_rule">ID</label>
-             <input type="text" class="form-control" name="user_id" id="user_id" value="" disabled>
+                <div>
+                    <form method="POST" action="" >
+                      <div>
+                            <label for="text" class="col-md-4">ID</label>
+                            <div class="col-md-6">
+                                <input id="id" type="text" name="name" class="form-control" maxlength="100" disabled>
+                            </div>
+                        </div>
 
-            
-              <div class="form-group">
-                <label for="user_name">名前</label>
-                <input type="text" class="form-control" name="user_name" id="user_name" maxlength="100" value="">
-              </div>
+                         <div>
+                            <label for="text" class="col-md-4">名前</label>
+                            <div class="col-md-6">
+                                <input id="name" type="text" name="name" class="form-control" maxlength="15">
+                            </div>
+                        </div>
+                      
+                        <div>
+                            <label for="text" class="col-md-4">email</label>
+                            <div class="col-md-6">
+                                <input type="email" name="email" maxlength="50" class="form-control">
+                            </div>
+                        </div>
 
-              <div class="form-group">
-                <label for="user_name">E-mail</label>
-                <input type="email" class="form-control" name="email" id="email" maxlength="100" value="">
-              </div>
+                        <div>
+                            <label for="password" class="col-md-4">Password</label>
+                            <div class="col-md-6">
+                                <input id="textPassword" type="password" class="form-control" name="password" maxlength="128">
+                                <span id="buttonEye" class="fa fa-eye"></span>
+                            </div>
+                        </div>
 
-              <div class="form-group">
-                <label for="password" >パスワード</label>
-                <input type="password" class="form-control" name="user_password" id="textPassword" maxlength="128" placeholder="パスワードを変更する場合のみ入力して下さい">
-                <span id="buttonEye" class="fa fa-eye"></span>
-              </div>
-              @csrf 
 
-              <div class="btn-toolbar">
-                <div class="btn-group">
-                            <button type="submit" class="btn btn-light">更新</button>
-                </div>   
-            
-      </form>                  
-    </nav>
- </div>
+                        <div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn  btn-light">
+                                    更新
+                                </button>
+                                {{ csrf_field() }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
   @endsection

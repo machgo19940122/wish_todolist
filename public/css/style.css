@@ -10,6 +10,11 @@
 
 /* ヘッダー */
 
+.sitename{
+  font-weight: lighter;
+}
+
+
 .navbar {
   margin: 2rem 0 2.5rem 0;
 }
@@ -72,6 +77,7 @@ main{
 /* タグのCSS */
   h1 {
     font-size:16px;
+    font-weight:lighter;
     color:white;/*文字色*/
     padding: 0.5em;/*文字周りの余白*/
     display: inline-block;/*おまじない*/
@@ -143,3 +149,5 @@ a.button2:hover {
   color: rgba(255, 255, 255, 0.85);
   box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
 }
+
+/* side  */

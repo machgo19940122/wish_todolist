@@ -17,7 +17,7 @@
 <body>
   <header>
     <nav class="my-navbar">
-      <a class="my-navbar-brand" href="/top">Wish and Todo List</a>
+      <a class="my-navbar-brand sitename" href="/top">Wish and Todo List</a>
       <div class="my-navbar-control">
         @if(!Session::has('id'))
         <a class="my-navbar-item" href="/login">ログイン</a>
@@ -35,6 +35,7 @@
                 <li><a href="/wishlist" >wishlist</a></li>
                 <li ><a href="/todolist">todolist</a></li>
                 <li><a href="/edit_member">会員情報変更</a></li>
+                <li><a href="/add_friend">お友達設定</a></li>
                 <li><a href="/logout"><form  action=""method="GET">ログアウト</form></a></li>
         </ul>
     </div>

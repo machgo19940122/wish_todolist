@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<h1>todolist</h1>
+<h1>to do list</h1>
     <div class="row">
       <div class="col col-md-4">
         <nav class="panel panel-default">

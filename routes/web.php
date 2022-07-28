@@ -46,11 +46,14 @@ Route::get('/todolist_tasks',function(){return view('todolist/todolist_tasks');}
 //wishlistタスク作成画面表示
 Route::get('/wishlist_tasks',function(){return view('wishlist/wishlist_tasks');})->name('wish_tasks');
 
-//todolistタスク編集
+//todolistタスク編集画面表示
 Route::get('/todolist_edit_task',function(){return view('todolist/edit_todo_task');})->name('td_edit');
 
-//wishlistタスク編集
+//wishlistタスク編集画面表示
 Route::get('/wishlist_edit_task',function(){return view('wishlist/edit_wish_task');})->name('wish_edit');
 
-//会員情報変更
+//会員情報変更画面表示
 Route::get('/edit_member',function(){return view('user/edit_member');})->name('edit_member');
+
+//お友達追加画面表示
+Route::get('/add_friend',function(){return view('user/add_friend');})->name('add_friend');

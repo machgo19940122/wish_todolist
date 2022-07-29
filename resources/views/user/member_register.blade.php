@@ -8,7 +8,7 @@
                 <div><h1>get your id to start !</h1></div>
 
                 <div>
-                    <form method="POST" action="" >
+                    <form method="POST" action="{{ route('postsignup') }}" >
 
                          <div>
                             <label for="text" class="col-md-4">名前</label>

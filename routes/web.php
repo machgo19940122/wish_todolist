@@ -19,9 +19,14 @@ Route::get('/', function () {
 
 //会員登録画面の表示
 Route::get('/register',function(){return view('user/member_register');})->name('register');
-
+//会員登録処理
+Route::post('/register', [App\Http\Controllers\UserController::class, 'postSignup'])->name('postsignup');
+// //ログアウト
+Route::get('/logout', [App\Http\Controllers\UserController::class,'logout'])->name('logout');
 //ログイン画面の表示
 Route::get('/login',function(){return view('user/login');})->name('login');
+//ログイン処理
+Route::post('/login', [App\Http\Controllers\UserController::class, 'postSignin'])->name('signin');
 
 //top画面の表示
 Route::get('/top',function(){return view('/top');})->name('top');
@@ -52,8 +57,9 @@ Route::get('/todolist_edit_task',function(){return view('todolist/edit_todo_task
 //wishlistタスク編集画面表示
 Route::get('/wishlist_edit_task',function(){return view('wishlist/edit_wish_task');})->name('wish_edit');
 
-//会員情報変更画面表示
-Route::get('/edit_member',function(){return view('user/edit_member');})->name('edit_member');
-
+//会員情報編集画面の表示
+Route::get('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'get_edit_member']);
+//会員情報編集の処理
+Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'edit_member'])->name('edit_member');
 //お友達追加画面表示
 Route::get('/add_friend',function(){return view('user/add_friend');})->name('add_friend');

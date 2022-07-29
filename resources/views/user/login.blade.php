@@ -6,12 +6,12 @@
         <div class="col-md-8">
             <div>
                 <div><h1>login</h1></div>
-<!-- 
+
                     @if(isset($login_error))
                     <div class="alert alert-warning text-sm" role="alert">
                             ログインに失敗しました。社員番号、パスワードが正しいかご確認ください。
                     </div>
-                    @endif -->
+                    @endif
 
                 <div>
                     <form method="POST" action="" >
@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <div class="col-md-8">
-                                <button type="submit" class="btn  btn-light">Login
+                                <button type="submit" class="btn  btn-light" action="{{ route('signin') }}">Login
                                 </button>
                             </div>
                             {{ csrf_field() }}

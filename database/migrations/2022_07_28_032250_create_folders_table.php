@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('title',20);
             $table->integer('category')->index()->comment('0=wish,1=td');
             $table->timestamps();

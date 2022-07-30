@@ -8,15 +8,19 @@
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
           <div class="panel-body">
-            <a href="/todolist_add_folder" class="btn btn-default btn-block">
+            <a href="/add_folder/1" class="btn btn-default btn-block">
               フォルダを追加する
             </a>
           </div>
           <div class="list-group">
             
-              <a>
-                フォルダのタイトル
+          @foreach($folders as $folder)
+              <a href=""
+                  class="list-group-item"
+              >
+                {{ $folder->title }}
               </a>
+            @endforeach
       
           </div>
         </nav>

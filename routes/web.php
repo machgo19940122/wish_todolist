@@ -32,18 +32,18 @@ Route::post('/login', [App\Http\Controllers\UserController::class, 'postSignin']
 Route::get('/top',function(){return view('/top');})->name('top');
 
 //todolistの画面表示
-
-Route::get('/todolist',function(){return view('todolist/todolist');})->name('todolist');
-
+Route::get('/todo/{category}/folders/{id}/tasks',[App\Http\Controllers\TaskController::class,'get_todo_folder'])->name('todo_tasks.index');
+// Route::get('/todo/folders/{id}/tasks',function(){return view('todolist/todolist');})->name('todolist');
 
 //wishlistの画面表示
-Route::get('/wishlist',function(){return view('wishlist/wishlist');})->name('wishlist');
+Route::get('/wish/folders/{category}/tasks',[App\Http\Controllers\TaskController::class,'get_wish_folder'])->name('wish_tasks.index');
 
-//todolistフォルダー追加の画面表示
-Route::get('/todolist_add_folder',function(){return view('todolist/todolist_folder');})->name('td_folder');
+//フォルダー追加の画面表示
+// Route::get('/add_folder/{id}',function(){return view('/folder');})->name('add_folder');
+Route::get('/add_folder/{category}', [App\Http\Controllers\FolderController::class, 'get_add_folder']);
 
-//wishlistフォルダー追加の画面表示
-Route::get('/wishlist_add_folder',function(){return view('wishlist/wishlist_folder');})->name('wish_folder');
+//フォルダー作成処理
+Route::post('/add_folder',[App\Http\Controllers\FolderController::class,'add_folder'])->name('add_folder');
 
 //todolistタスク作成画面表示
 Route::get('/todolist_tasks',function(){return view('todolist/todolist_tasks');})->name('td_tasks');

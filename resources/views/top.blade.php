@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="wrap">
-      <a href="/wishlist" class="button link">check Wish list</a>
-      <a href="/todolist" class="button2 link">check To do</a>
+      <a href="/wish/folders/0/tasks" class="button link">check Wish list</a>
+      <a href="/todo/folders/1/tasks" class="button2 link">check To do</a>
   </div>
 
 

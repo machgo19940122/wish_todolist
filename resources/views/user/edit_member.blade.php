@@ -19,7 +19,7 @@
                 <div><h1>会員登録情報修正</h1></div>
 
                 <div>
-                    <form method="POST" action="{{ route('edit_member', $user->id) }}" >
+                    <form method="POST" action="{{route('edit_member',$user->id)}}" >
                       <div>
                             <label for="text" class="col-md-4">ID</label>
                             <div class="col-md-6">

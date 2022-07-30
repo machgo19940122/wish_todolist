@@ -25,7 +25,7 @@
         <a class="my-navbar-item" href="/login">ログイン</a>
         <a class="my-navbar-item" href="/register">会員登録</a>
         @else
-        <span class="my-navbar-item header_topics">user:{{session('id')}}/name:{{session('name')}}</span>
+        <span class="my-navbar-item">user:{{session('id')}}/name:{{session('name')}}</span>
         @endif
       </div>
     </nav>
@@ -34,8 +34,8 @@
   <main>  
     <div class="side" id="side_bar">  
         <ul class="nav nav-stacked">
-                <li><a href="/wishlist" >wishlist</a></li>
-                <li ><a href="/todolist">todolist</a></li>
+                <li><a href="/wish/folders/0/tasks" >wishlist</a></li>
+                <li ><a href="/wish/folders/0/tasks">todolist</a></li>
                 <li><a href="/edit_member/{{session('id')}}">会員情報変更</a></li>
                 <li><a href="/add_friend">お友達設定</a></li>
                 <li><a href="/logout"><form  action="{{ route('logout') }}" method="GET">ログアウト</form></a></li>

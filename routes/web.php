@@ -36,7 +36,7 @@ Route::get('/todo/{category}/folders/{id}/tasks',[App\Http\Controllers\TaskContr
 // Route::get('/todo/folders/{id}/tasks',function(){return view('todolist/todolist');})->name('todolist');
 
 //wishlistの画面表示
-Route::get('/wish/folders/{category}/tasks',[App\Http\Controllers\TaskController::class,'get_wish_folder'])->name('wish_tasks.index');
+Route::get('/wish/{category}/folders/{id}/tasks',[App\Http\Controllers\TaskController::class,'get_wish_folder'])->name('wish_tasks.index');
 
 //フォルダー追加の画面表示
 // Route::get('/add_folder/{id}',function(){return view('/folder');})->name('add_folder');
@@ -46,20 +46,28 @@ Route::get('/add_folder/{category}', [App\Http\Controllers\FolderController::cla
 Route::post('/add_folder',[App\Http\Controllers\FolderController::class,'add_folder'])->name('add_folder');
 
 //todolistタスク作成画面表示
-Route::get('/todolist_tasks',function(){return view('todolist/todolist_tasks');})->name('td_tasks');
+Route::get('/td_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'get_add_tdtask'])->name('get_add_tdtask');
+
+//tdタスク登録
+Route::post('/td_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'add_td_task'])->name('add_td_task');
 
 //wishlistタスク作成画面表示
-Route::get('/wishlist_tasks',function(){return view('wishlist/wishlist_tasks');})->name('wish_tasks');
+Route::get('/wish_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'get_add_wishtask'])->name('get_add_wishtask');
+
+//tdタスク登録
+Route::post('/wish_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'add_wish_task'])->name('add_wish_task');
 
 //todolistタスク編集画面表示
-Route::get('/todolist_edit_task',function(){return view('todolist/edit_todo_task');})->name('td_edit');
+Route::get('/todolist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'get_edit_todo_task'])->name('td_edit');
 
 //wishlistタスク編集画面表示
 Route::get('/wishlist_edit_task',function(){return view('wishlist/edit_wish_task');})->name('wish_edit');
 
 //会員情報編集画面の表示
 Route::get('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'get_edit_member']);
+
 //会員情報編集の処理
 Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'edit_member'])->name('edit_member');
+
 //お友達追加画面表示
 Route::get('/add_friend',function(){return view('user/add_friend');})->name('add_friend');

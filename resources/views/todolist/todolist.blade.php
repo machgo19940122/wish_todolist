@@ -15,7 +15,7 @@
           <div class="list-group">
             
           @foreach($folders as $folder)
-              <a href=""
+              <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
                   class="list-group-item"
               >
                 {{ $folder->title }}
@@ -30,7 +30,7 @@
           <div class="panel-heading">タスク</div>
           <div class="panel-body">
             <div class="text-right">
-              <a href="/todolist_tasks" class="btn btn-default btn-block">
+              <a href="{{ route('get_add_tdtask', ['folder_id' => $current_folder_id]) }}" class="btn btn-default btn-block">
                 タスクを追加する
               </a>
             </div>
@@ -38,25 +38,29 @@
           <table class="table">
             <thead>
             <tr>
-              <th>タイトル</th>
-              <th>状態</th>
+              <th>やること</th>
               <th>期限</th>
-              <th></th>
+              <th>状況</th>
+              <th>URL</th>
+              <th>担当</th>
+              <th>コメント</th>
+              <th>備考</th>
             </tr>
             </thead>
             <tbody>
-            
+            @foreach($tasks as $task)
               <tr>
-                <td>タイトル</td>
-                <td>
-                  <span class="label">状況</span>
-                </td>
-                <td>期日</td>
-                <td><a href="/todolist_edit_task">
-                      編集
-                    </a></td>
+                <td>{{ $task->title}}</td>
+                <td>{{ $task->due_date}}</td>
+                <td>{{ $task->status}}</td>
+                <td><a href="$task->url"></a>{{$task->url}}</td>
+                <td>{{ $task->who}}</td>
+                <td>{{ $task->comment}}</td>
+                <td>{{ $task->remarks}}</td>
+                <td><a href="{{ route('td_edit', ['task_id' => $task->id]) }}" >編集</a></td>
               </tr>
-            
+            @endforeach
+           
             </tbody>
           </table>
         </div>

@@ -15,9 +15,10 @@
           </div>
           <div class="list-group">
               @foreach($folders as $folder)
-                  <a href=""
-                      class="list-group-item"
-                  >
+              <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}" 
+                  class="list-group-item"
+
+              >
                     {{ $folder->title }}
                   </a>
                 @endforeach
@@ -29,33 +30,37 @@
           <div class="panel-heading">タスク</div>
           <div class="panel-body">
             <div class="text-right">
-              <a href="/wishlist_tasks" class="btn btn-default btn-block">
-                タスクを追加する
+            <a href="{{ route('get_add_wishtask', ['folder_id' => $current_folder_id]) }}" class="btn btn-default btn-block">
+                タスクを追加
               </a>
             </div>
           </div>
           <table class="table">
             <thead>
             <tr>
-              <th>タイトル</th>
-              <th>状態</th>
+              <th>やること</th>
               <th>期限</th>
+              <th>状況</th>
+              <th>URL</th>
+              <th>コメント</th>
+              <th>予算</th>
+              <th>備考</th>
               <th></th>
             </tr>
             </thead>
             <tbody>
-            
+            @foreach($tasks as $task)
               <tr>
-                <td>タイトル</td>
-                <td>
-                  <span class="label">状況</span>
-                </td>
-                <td>期日</td>
-                <td><a href="/todolist_edit_task">
-                      編集
-                    </a></td>
+                <td>{{ $task->title}}</td>
+                <td>{{ $task->due_date}}</td>
+                <td>{{ $task->status}}</td>
+                <td>{{ $task->url}}</td>
+                <td>{{ $task->comment}}</td>
+                <td>{{ $task->remarks}}</td>
+                <td>{{ $task->budget}}</td>
+                <td><a href="/todolist_edit_task">編集</a></td>
               </tr>
-            
+            @endforeach
             </tbody>
           </table>
         </div>

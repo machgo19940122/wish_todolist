@@ -29,9 +29,12 @@ class UserController extends Controller
 
         // 保存
         $user->save();
+
         $name = $request->input('name');
+        $email = $request->input('email');
+        
         // リダイレクト
-        Mail::send(new RegisterMail($name));
+        Mail::send(new RegisterMail($name,$email));
         return redirect()->route('login');
     }
 

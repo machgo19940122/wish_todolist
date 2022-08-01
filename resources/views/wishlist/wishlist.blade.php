@@ -44,7 +44,7 @@
               <th>URL</th>
               <th>コメント</th>
               <th>予算</th>
-              <th>備考</th>
+              <th>備考欄</th>
               <th></th>
             </tr>
             </thead>
@@ -54,11 +54,11 @@
                 <td>{{ $task->title}}</td>
                 <td>{{ $task->due_date}}</td>
                 <td>{{ $task->status}}</td>
-                <td>{{ $task->url}}</td>
+                <td><a href="{{$task->url}}">{{ $task->url}}</a></td>
                 <td>{{ $task->comment}}</td>
-                <td>{{ $task->remarks}}</td>
                 <td>{{ $task->budget}}</td>
-                <td><a href="/todolist_edit_task">編集</a></td>
+                <td>{{ $task->remarks}}</td>
+                <td><a href="{{ route('wish_edit', ['task_id' => $task->id]) }}" >編集</a></td>
               </tr>
             @endforeach
             </tbody>

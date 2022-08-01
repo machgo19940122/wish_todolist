@@ -132,4 +132,61 @@ public function get_edit_todo_task(int $task_id){
         'tasks'=>$tasks
      ]);
 }
+
+//td編集処理
+public function edit_todo_task(int $task_id, Request $request)
+{
+    // 1
+    $task = TdTask::find($task_id);
+
+    // 2
+    $task->title = $request->title;
+    $task->status = $request->status;
+    $task->due_date = $request->due_date;
+    $task->who = $request->who;
+    $task->url = $request->url;
+    $task->comment = $request->comment;
+    $task->remarks= $request->remarks;
+    $task->folder_id = $request->folder_id;
+    $task->save();
+
+    // 3
+    return redirect()->route('td_edit', [
+        'task_id' => $task_id,
+    ]);
+}
+
+
+//wish編集画面
+public function get_edit_wish_task(int $task_id){
+    $tasks = WishTask::find($task_id);
+    return view('wishlist/edit_wish_task',
+    [
+        'tasks'=>$tasks
+     ]);
+}
+
+//wishのタスク編集処理
+public function edit_wish_task(int $task_id, Request $request)
+{
+    // 1
+    $task = WishTask::find($task_id);
+    // 2
+    $task->title = $request->title;
+    $task->status = $request->status;
+    $task->due_date = $request->due_date;
+    $task->url = $request->url;
+    $task->comment = $request->comment;
+    $task->budget = $request->budget;
+    $task->remarks= $request->remarks;
+    $task->folder_id = $request->folder_id;
+    $task->save();
+    // 3
+    return redirect()->route('wish_edit', [
+        'task_id' => $task_id,
+    ]);
+}
+
+//
+
 }

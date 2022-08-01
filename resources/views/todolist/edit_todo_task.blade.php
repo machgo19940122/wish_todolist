@@ -6,13 +6,13 @@
     <div class="row">
       <div class="col col-md-offset-3 col-md-6">
         <nav class="panel panel-default">
-          <div class="panel-heading">タスクを編集する</div>
+          <div class="panel-heading">"{{$tasks->title}}"を編集する</div>
           <div class="panel-body">
-            <form
-                action=""
-                method="POST"
-            >
             <form action="" method="POST">
+              </div>  
+                <div class="text-right">
+                  <button type="submit" class="btn btn-light">更新</button>
+                </div>
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -36,13 +36,13 @@
 
               <div class="form-group">
                 <label for="comment">コメント</label>
-                <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" />
+                <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" placeholder="登録時のメモにご利用ください”>
               </div>
 
 
               <div class="form-group">
                 <label for="status">remarks</label>
-                <input type="text" class="form-control" name="remarks" id="remarks" value="{{$tasks->remarks }}" />
+                <input type="text" class="form-control" name="remarks" id="remarks" value="{{$tasks->remarks }}" placeholder="完了時のコメントにご利用ください">
               </div>
 
               <div class="form-group">
@@ -52,17 +52,8 @@
                           <option value='1'>実行中</option>
                           <option value='2'>完了</option>
               </div>
-
-                    
-              <!-- フォルダーIDをセット -->
-              <div class="text-right">
-                <button type="submit" class="btn btn-light">更新</button>
-              </div>
-
-
-            </form>
-            </form>
-          </div>
+              <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
+         </form>
         </nav>
       </div>
     </div>

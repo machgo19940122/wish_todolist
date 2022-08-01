@@ -53,7 +53,7 @@
                 <td>{{ $task->title}}</td>
                 <td>{{ $task->due_date}}</td>
                 <td>{{ $task->status}}</td>
-                <td><a href="$task->url"></a>{{$task->url}}</td>
+                <td><a href="$task->url">{{$task->url}}</a></td>
                 <td>{{ $task->who}}</td>
                 <td>{{ $task->comment}}</td>
                 <td>{{ $task->remarks}}</td>

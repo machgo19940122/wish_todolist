@@ -37,7 +37,7 @@
                 <li><a href="/wish/0/folders/0/tasks" >wishlist</a></li>
                 <li ><a href="/todo/0/folders/0/tasks">todolist</a></li>
                 <li><a href="/edit_member/{{session('id')}}">会員情報変更</a></li>
-                <li><a href="/add_friend">お友達設定</a></li>
+                <li><a href="/add_friend/{{session('id')}}">お友達設定</a></li>
                 <li><a href="/logout"><form  action="{{ route('logout') }}" method="GET">ログアウト</form></a></li>
         </ul>
     </div>

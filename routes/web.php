@@ -69,10 +69,13 @@ Route::get('/wishlist_edit_task/{task_id}', [App\Http\Controllers\TaskController
 Route::post('/wishlist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'edit_wish_task'])->name('wish_edit');
 
 //会員情報編集画面の表示
-Route::get('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'get_edit_member']);
+Route::get('/edit_member/{id}', [App\Http\Controllers\UserController::class,'get_edit_member']);
 
 //会員情報編集の処理
-Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class, 'edit_member'])->name('edit_member');
+Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class,'edit_member'])->name('edit_member');
 
 //お友達追加画面表示
-Route::get('/add_friend',function(){return view('user/add_friend');})->name('add_friend');
+Route::get('/add_friend/{id}', [App\Http\Controllers\FriendController::class,'get_friend']);
+
+//お友達解除
+Route::post('/delete_friend/{user_id}', [App\Http\Controllers\FriendController::class,'delete_friend']);

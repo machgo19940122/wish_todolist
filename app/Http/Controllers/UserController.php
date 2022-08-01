@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail; //メール
+use App\Mail\RegisterMail; 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -27,7 +29,9 @@ class UserController extends Controller
 
         // 保存
         $user->save();
+        $name = $request->input('name');
         // リダイレクト
+        Mail::send(new RegisterMail($name));
         return redirect()->route('login');
     }
 

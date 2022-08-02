@@ -166,6 +166,16 @@ public function get_edit_wish_task(int $task_id){
      ]);
 }
 
+
+//td削除
+public function delete_td_task(int $task_id)
+{
+    // 1
+    TdTask::where('id','=',$task_id)->delete();
+    // 3
+    return redirect()->route('top');
+}
+
 //wishのタスク編集処理
 public function edit_wish_task(int $task_id, Request $request)
 {
@@ -187,6 +197,11 @@ public function edit_wish_task(int $task_id, Request $request)
     ]);
 }
 
-//
+//td削除
+public function delete_wish_task(int $task_id)
+{
+    WishTask::where('id','=',$task_id)->delete();
+    return redirect()->route('top');
+}
 
 }

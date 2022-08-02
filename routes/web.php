@@ -59,11 +59,20 @@ Route::post('/wish_task/{folder_id}', [App\Http\Controllers\TaskController::clas
 
 //todolistタスク編集画面表示
 Route::get('/todolist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'get_edit_todo_task'])->name('get_td_edit')->middleware('login');
+
+//tdtask消去の処理
+Route::delete('/todolist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class,'delete_td_task'])->name('delete_td_task');
+
+
 //todolistタスク処理
 Route::post('/todolist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'edit_todo_task'])->name('td_edit');
 
 //wishlistタスク編集画面表示
 Route::get('/wishlist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'get_edit_wish_task'])->name('get_widh_edit')->middleware('login');
+
+//wishtask消去の処理
+Route::delete('/wishlist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class,'delete_wish_task'])->name('delete_wish_task');
+
 
 //todolistタスク処理
 Route::post('/wishlist_edit_task/{task_id}', [App\Http\Controllers\TaskController::class, 'edit_wish_task'])->name('wish_edit');
@@ -73,6 +82,7 @@ Route::get('/edit_member/{id}', [App\Http\Controllers\UserController::class,'get
 
 //会員情報編集の処理
 Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class,'edit_member'])->name('edit_member');
+
 
 //お友達追加画面表示
 Route::get('/add_friend/{id}', [App\Http\Controllers\FriendController::class,'get_friend'])->middleware('login');

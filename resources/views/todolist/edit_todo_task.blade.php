@@ -54,6 +54,12 @@
               </div>
               <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
          </form>
+
+            <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
+                                      @csrf 
+                                      {{ method_field('DELETE') }}
+                                      <button type="submit" class="btn btn-primary">申請取り下げ</button>
+            </form>
         </nav>
       </div>
     </div>

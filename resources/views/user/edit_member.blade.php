@@ -3,7 +3,7 @@
 @section('content')
 <!-- バリデーションエラーメッセージ-->
 @if ($errors->any())
-  <div class="alert alert-info">
+  <div class="alert alert-light">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

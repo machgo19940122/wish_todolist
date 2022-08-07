@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Folder;
+use App\Models\Friend;
 use App\Models\TdTask;
 use App\Models\WishTask;
 use Illuminate\Http\Request;
@@ -35,8 +36,13 @@ class TaskController extends Controller
         $category = $category;
         $current_folder_id=$id;
         $user_id=session('id');
-        $folders = Folder::whereCategory(0)
-                            ->where('user_id', '=', $user_id)->get();
+        $friend=Friend::where('follow_user_id','=',$user_id)->where('status','=','active')->first();
+        //自分と友達のフォルダーを取得
+        if(!empty($friend)){
+            $folders = Folder::whereCategory(0)->whereIn('user_id',[$user_id,$friend->followed_user_id])->get();
+            }else{
+                $folders = Folder::whereCategory(0)->where('user_id','=',$user_id)->get();
+            }
         $tasks = WishTask::where('folder_id','=',$current_folder_id)->get();
        return view('wishlist/wishlist',
        [
@@ -53,8 +59,15 @@ class TaskController extends Controller
         $current_folder_id=$id;
         $current_id=$id;
         $user_id=session('id');
-        $folders = Folder::whereCategory(1)
-                            ->where('user_id', '=', $user_id)->get();
+        $friend=Friend::where('follow_user_id','=',$user_id)->where('status','=','active')->first();
+        //自分のフォルダーと友達フォルダー
+        if(!empty($friend)){
+             $folders = Folder::whereCategory(1)->whereIn('user_id',[$user_id,$friend->followed_user_id])->get();
+        }else{
+            $folders = Folder::whereCategory(1)->where('user_id','=',$user_id)->get();
+        }
+       
+                           
        $tasks = TdTask::where('folder_id','=',$current_folder_id)->get();
 
        return view('todolist/todolist',
@@ -69,12 +82,11 @@ class TaskController extends Controller
 
 public function add_td_task(int $id,request $request){
    
-            // // バリデーション
-            // $this->validate($request,[
-            //     'email' => 'required',
-            //     'name' => 'required',
-            //     'password' => 'required',
-            // ]);
+            // バリデーション
+            $this->validate($request,[
+                'title' => 'required',
+                'due_date' => 'required',
+            ]);
     
             // DBインサート
             $td_task = new TdTask([
@@ -98,12 +110,11 @@ public function add_td_task(int $id,request $request){
 
 public function add_wish_task(int $id,request $request){
    
-            // // バリデーション
-            // $this->validate($request,[
-            //     'email' => 'required',
-            //     'name' => 'required',
-            //     'password' => 'required',
-            // ]);
+            // バリデーション
+            $this->validate($request,[
+                'title' => 'required',
+                'due_date' => 'required',
+            ]);
     
             // DBインサート
             $wish_task = new WishTask([

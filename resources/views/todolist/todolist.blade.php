@@ -35,6 +35,7 @@
               </a>
             </div>
           </div>
+
           <table class="table">
             <thead>
             <tr>
@@ -60,7 +61,7 @@
                 <td><a href="{{ route('td_edit', ['task_id' => $task->id]) }}" >編集</a></td>
               </tr>
             @endforeach
-           
+          
             </tbody>
           </table>
         </div>

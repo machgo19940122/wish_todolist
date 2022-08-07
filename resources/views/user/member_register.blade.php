@@ -1,6 +1,18 @@
 @extends('common/header_side')
 
 @section('content')
+
+<!-- バリデーションエラーメッセージ-->
+@if ($errors->any())
+  <div class="alert alert-light">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container">
     <div>
         <div>

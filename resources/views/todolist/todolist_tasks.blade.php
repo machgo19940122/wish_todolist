@@ -2,11 +2,22 @@
 
 @section('content')
 <div class="container">
-<h1>todolist</h1>
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">{{$folders->title}}にタスクを追加しましょう</div>
+  <h1>todolist</h1>
+  <div class="row">
+    <div class="col col-md-offset-3 col-md-6">
+      <nav class="panel panel-default">
+        <div class="panel-heading">{{$folders->title}}にタスクを追加しましょう</div>
+        <!-- バリデーションエラーメッセージ-->
+        @if ($errors->any())
+          <div class="alert alert-light">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            
+            @endif
           <div class="panel-body">
 
             <form action="" method="POST">

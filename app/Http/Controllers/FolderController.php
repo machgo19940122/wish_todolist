@@ -17,6 +17,10 @@ class FolderController extends Controller
 
     //フォルダーの新規作成
     public function add_folder(request $request){
+            // バリデーション
+            $this->validate($request,[
+                'title' => 'required',
+            ]);
         $folder = new Folder();
         $folder -> title = $request -> title;
         $folder -> category = $request -> category;

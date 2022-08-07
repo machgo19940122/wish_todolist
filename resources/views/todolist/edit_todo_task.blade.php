@@ -9,10 +9,10 @@
           <div class="panel-heading">"{{$tasks->title}}"を編集する</div>
           <div class="panel-body">
             <form action="" method="POST">
-              </div>  
-                <div class="text-right">
-                  <button type="submit" class="btn btn-light">更新</button>
-                </div>
+              
+                
+                
+            
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -53,12 +53,13 @@
                           <option value='2'>完了</option>
               </div>
               <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
+              <button type="submit" class="btn btn-light">更新</button>
          </form>
 
             <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
                                       @csrf 
                                       {{ method_field('DELETE') }}
-                                      <button type="submit" class="btn btn-primary">申請取り下げ</button>
+                                      <button type="submit" class="btn btn-light">タスクを消す</button>
             </form>
         </nav>
       </div>

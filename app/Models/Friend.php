@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Friend extends Model
 {
     use HasFactory;
+    protected $fillable = ['id','status','followed_user_id', 'follow_user_id'];
 }

@@ -9,12 +9,12 @@
 
                     @if(isset($login_error))
                     <div class="alert alert-warning text-sm" role="alert">
-                            ログインに失敗しました。社員番号、パスワードが正しいかご確認ください。
+                            ログインに失敗しました。emailとパスワードが正しいかご確認ください。
                     </div>
                     @endif
 
                 <div>
-                    <form method="POST" action="" >
+                    <form method="POST" action="{{route('signin')}}" >
                         <div>
                             <label class="col-md-4 col-form-label text-md-end">email</label>
                             <div class="col-md-6">

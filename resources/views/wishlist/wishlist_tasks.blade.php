@@ -2,12 +2,23 @@
 
 @section('content')
 <div class="container">
-<h1>wish list</h1>
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">{{$folders->title}}に追加</div>
-          <div class="panel-body">
+  <h1>wish list</h1>
+  <div class="row">
+    <div class="col col-md-offset-3 col-md-6">
+      <nav class="panel panel-default">
+        <div class="panel-heading">{{$folders->title}}に追加</div>
+        <div class="panel-body">
+            <!-- バリデーションエラーメッセージ-->
+            @if ($errors->any())
+              <div class="alert alert-light">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                
+                @endif
 
             <form action="" method="POST">
               @csrf

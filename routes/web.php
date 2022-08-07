@@ -85,7 +85,13 @@ Route::post('/edit_member/{id}', [App\Http\Controllers\UserController::class,'ed
 
 
 //お友達追加画面表示
-Route::get('/add_friend/{id}', [App\Http\Controllers\FriendController::class,'get_friend'])->middleware('login');
+Route::get('/add_friend/{id}', [App\Http\Controllers\FriendController::class,'get_friend'])->name('get_friend')->middleware('login');
 
 //お友達解除
-Route::post('/delete_friend/{user_id}', [App\Http\Controllers\FriendController::class,'delete_friend']);
+Route::post('/add_friend/{id}', [App\Http\Controllers\FriendController::class,'delete_friend'])->name('delete_friend');
+
+//お友達追加画面表示
+Route::get('/search_friend', [App\Http\Controllers\FriendController::class,'search_friend'])->name('search_friend')->middleware('login');
+
+//お友達追加画面表示
+Route::post('/search_friend/{friend_id}', [App\Http\Controllers\FriendController::class,'add_friend'])->name('add_friend')->middleware('login');

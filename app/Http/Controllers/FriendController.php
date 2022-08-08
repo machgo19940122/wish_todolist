@@ -52,6 +52,8 @@ public function  search_friend(request $request)
     ->orWhere('name', 'LIKE', "%{$keyword}%");
 }
   $users = $query -> get();
+  Session::put("search_keyword",$keyword);
+
   return view('user/search_friend',
     [
         'users'=>$users
@@ -61,20 +63,31 @@ public function  search_friend(request $request)
 //友達の追加
 
 public function  add_friend(int $friend_id)
-{   
-
+{  
+ 
+  //追加する友達に既に友達登録がないかを確認
+  $check_friend=null;
+  $check_friend=Friend::where('follow_user_id','=',$friend_id)->get();
+  
   if($friend_id === session('id')){
+    //自分のIDを追加した場合
     Session::flash('flash_message_1', '自分のIDは追加できません');
-    return redirect()->route('get_friend', [
-      'id' => session('id'),
+    return redirect()->route('search_friend', [
+      'keyword' => session('search_keyword'),
+  ]);
+
+  }elseif(!empty($check_friend)){
+    //既に友達のいるIDを追加しようとした場合
+    Session::flash('flash_message_2', 'このユーザーは既に他の人と共有しています。');
+    return redirect()->route('search_friend', [
+      'keyword' => session('search_keyword'),
   ]);
   }else{
-
+    //その他
     $add_friend_1 = new Friend([
       'follow_user_id' => $friend_id,
       'followed_user_id' => session('id')
     ]);
-  
     $add_friend_2 = new Friend([
       'follow_user_id' => session('id'),
       'followed_user_id' => $friend_id

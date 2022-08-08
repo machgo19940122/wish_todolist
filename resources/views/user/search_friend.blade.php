@@ -8,7 +8,9 @@
 
         <form action="{{route('search_friend')}}" method="GET">
                     <div class="form-inline">
-                      <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" >
+                      <input type="search" name="keyword"      
+                      class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" 
+                      >
                       <button type="submit" class="btn btn-outline-primary">search</button>
                     </div>
         </form>   
@@ -36,7 +38,7 @@
                           </td>
                     </tr>
                       @empty
-                        <td>No posts!!</td>
+                        <td>見つかりませんでした。</td>
                       @endforelse
                     </form>
               </tr>
@@ -47,11 +49,18 @@
     </div>
   </div>
 
-  <!-- フラッシュメッセージ -->
-  <script>
+    <!-- フラッシュメッセージ -->
+    <script>
             @if (session('flash_message_1'))
                 $(function () {
                                toastr.warning('{{ session('flash_message_1') }}'); });
+           @endif
+       </script>
+    <!-- フラッシュメッセージ -->
+    <script>
+            @if (session('flash_message_2'))
+                $(function () {
+                               toastr.warning('{{ session('flash_message_2') }}'); });
            @endif
        </script>
 @endsection

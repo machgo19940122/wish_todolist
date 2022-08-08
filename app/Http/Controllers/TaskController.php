@@ -23,11 +23,16 @@ class TaskController extends Controller
     //wishtask追加の表示（フォルダーId渡す）
     public function get_add_wishtask(int $folder_id){
         $folder_id = $folder_id;
-        $folders=Folder::whereId($folder_id)->first();
-        return view('/wishlist/wishlist_tasks', [
-            'folder_id'=>$folder_id,
-            'folders'=>$folders
-          ]);
+        if($foleder_id === 0 ){
+            
+        }else{
+
+            $folders=Folder::whereId($folder_id)->first();
+            return view('/wishlist/wishlist_tasks', [
+                'folder_id'=>$folder_id,
+                'folders'=>$folders
+              ]);
+        }
     }
 
 
@@ -82,6 +87,7 @@ class TaskController extends Controller
 
 public function add_td_task(int $id,request $request){
    
+
             // バリデーション
             $this->validate($request,[
                 'title' => 'required',

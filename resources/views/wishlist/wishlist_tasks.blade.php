@@ -56,7 +56,7 @@
 
               <!-- フォルダーIDをセット -->
               <input  name ="folder_id"value="{{$folder_id}}" hidden>
-              <input  name ="status"value="0" hidden>
+              <input  name ="status" value="0" hidden>
               
 
 

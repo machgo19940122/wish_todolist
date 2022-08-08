@@ -48,7 +48,7 @@
               <div class="form-group">
                     <label for="status">ステータス</label>
                     <select name="status" id="status" class="form-control">
-                          <option value='0'>完了</option>
+                          <option value='0'>未着手</option>
                           <option value='1'>実行中</option>
                           <option value='2'>完了</option>
               </div>

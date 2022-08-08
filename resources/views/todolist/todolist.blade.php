@@ -53,7 +53,10 @@
               <tr>
                 <td>{{ $task->title}}</td>
                 <td>{{ $task->due_date}}</td>
-                <td>{{ $task->status}}</td>
+                <td>
+                <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
+                 </td>
+
                 <td><a href="$task->url">{{$task->url}}</a></td>
                 <td>{{ $task->who}}</td>
                 <td>{{ $task->comment}}</td>
@@ -61,7 +64,7 @@
                 <td><a href="{{ route('td_edit', ['task_id' => $task->id]) }}" >編集</a></td>
               </tr>
             @endforeach
-          
+       
             </tbody>
           </table>
         </div>

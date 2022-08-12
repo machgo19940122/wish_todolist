@@ -66,9 +66,9 @@
 </div>
  <!-- フラッシュメッセージ -->
  <script>
-  @if (session('flash_message3'))
+  @if (session('flash_message_3'))
      $(function () {
-                    toastr.success('{{ session('flash_message3') }}');});
+                    toastr.success('{{ session('flash_message_3') }}');});
   @endif
 </script>
 <script src="{{ asset('/js/password.js') }}"></script>

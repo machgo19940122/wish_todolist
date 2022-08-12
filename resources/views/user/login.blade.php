@@ -45,4 +45,12 @@
 </div>
 <script src="{{ asset('/js/main.js') }}"></script>
 <script src="{{ asset('/js/password.js') }}"></script>
+
+    <!-- フラッシュメッセージ -->
+    <script>
+            @if (session('flash_message_5'))
+                $(function () {
+                               toastr.success('{{ session('flash_message_5') }}'); });
+           @endif
+       </script>
 @endsection

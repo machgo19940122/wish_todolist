@@ -29,12 +29,17 @@ class UserController extends Controller
 
         // 保存
         $user->save();
+        $new_name = $request->input('name');
+        $new_email = $request->input('email');
+        $new_user=User::where('email','=',$new_email)->get();
+        $new_password = $request->input('password');
+        $new_id = $new_user[0]->id;
 
-        $name = $request->input('name');
-        $email = $request->input('email');
-        
         // リダイレクト
-        Mail::send(new RegisterMail($name,$email));
+        Mail::send(new RegisterMail($new_name,$new_email,$new_password,$new_id));
+        //フラッシュメッセージ
+        Session::flash('flash_message_5', '会員登録は完了しました。登録された情報はメールで送信しております。');
+        
         return redirect()->route('login');
     }
 
@@ -70,7 +75,7 @@ class UserController extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        Session::flash('flash_message', 'ログアウトしました');
+        Session::flash('flash_message_4', 'ログアウトしました');
         return redirect()->route('login');
     }  
 
@@ -111,7 +116,7 @@ public function edit_member(Request $request,int $id){
     Session::put("id",$user->id);
     Session::put("name",$user->name);
     Session::put("email",$user->email);
-    Session::flash('flash_message3', '会員情報を編集しました');
+    Session::flash('flash_message_3', '会員情報を編集しました');
     
     return redirect()->route('edit_member',$user->id);
    

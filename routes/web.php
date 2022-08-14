@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user/login');
+    return view('welcome');
 });
 
 //会員登録画面の表示

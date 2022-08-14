@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->date('due_date');
             $table->integer('status')->default(0)->comment('0=未着手,1=実行中,2=完了');
-            $table->string('url', 100)->index()->comment('URL貼り付け欄')->nullable();
+            $table->text('url')->comment('URL貼り付け欄')->nullable();
             $table->string('who',10)->index()->nullable();
             $table->string('comment', 30)->index()->comment('登録時使用するコメント欄')->nullable();
             $table->string('remarks', 30)->index()->comment('完了時使用するコメント欄')->nullable();

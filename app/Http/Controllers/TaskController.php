@@ -28,6 +28,7 @@ class TaskController extends Controller
             'folders'=>$folders
           ]);
     }}
+    
     //wishtask追加の表示（フォルダーId渡す）
     public function get_add_wishtask(int $folder_id){
 
@@ -35,7 +36,7 @@ class TaskController extends Controller
             //フラッシュメッセージ
             Session::flash('flash_message_7', 'フォルダーを選択してください。');
            // リダイレクト
-           return redirect()->route('todo_tasks.index', [
+           return redirect()->route('wish_tasks.index', [
                'category' => 0,
                'id'=> $folder_id,
            ]);

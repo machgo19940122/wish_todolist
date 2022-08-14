@@ -18,13 +18,13 @@ Route::get('/', function () {
 });
 
 //会員登録画面の表示
-Route::get('/register',function(){return view('user/member_register');})->name('register')->middleware('login');
+Route::get('/register',function(){return view('user/member_register');})->name('register');
 //会員登録処理
-Route::post('/register', [App\Http\Controllers\UserController::class, 'postSignup'])->name('postsignup')->middleware('login');
+Route::post('/register', [App\Http\Controllers\UserController::class, 'postSignup'])->name('postsignup');
 // //ログアウト
-Route::get('/logout', [App\Http\Controllers\UserController::class,'logout'])->name('logout')->middleware('login');
+Route::get('/logout', [App\Http\Controllers\UserController::class,'logout'])->name('logout');
 //ログイン画面の表示
-Route::get('/login',function(){return view('user/login');})->name('login')->middleware('login');
+Route::get('/login',function(){return view('user/login');})->name('login');
 //ログイン処理
 Route::post('/login', [App\Http\Controllers\UserController::class, 'postSignin'])->name('signin');
 

@@ -48,9 +48,9 @@
               <div class="form-group">
                     <label for="status">ステータス</label>
                     <select name="status" id="status" class="form-control">
-                          <option value='0'>未着手</option>
-                          <option value='1'>実行中</option>
-                          <option value='2'>完了</option>
+                          <option value="0"  <?php if($tasks->status == "0"): ?>selected<?php endif ?>>未着手</option>
+                          <option value="1"  <?php if($tasks->status == "1"): ?>selected<?php endif ?>>着手中</option>
+                          <option value="2"  <?php if($tasks->status == "2"): ?>selected<?php endif ?>>完了</option>
               </div>
               <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
               <button type="submit" class="btn btn-light">更新</button>

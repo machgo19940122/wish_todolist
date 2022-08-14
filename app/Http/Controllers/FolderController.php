@@ -26,10 +26,18 @@ class FolderController extends Controller
         $folder -> category = $request -> category;
         $folder -> user_id = session('id');
         $folder->save();
-        return redirect()->route('wish_tasks.index', [
-            'category' => $request->category,
-            'id'=> 0,
-        ]);
+
+        if($request->category === "0"){
+            return redirect()->route('wish_tasks.index', [
+                'category' => $request->category,
+                'id'=> 0,
+            ]);
+        }else{
+            return redirect()->route('todo_tasks.index', [
+                'category' => $request->category,
+                'id'=> 0,
+            ]);
+        }
 
     }
 

@@ -18,7 +18,7 @@ class TaskController extends Controller
          Session::flash('flash_message_6', 'フォルダーを選択してください。');
         // リダイレクト
         return redirect()->route('todo_tasks.index', [
-            'category' => 0,
+            'category' =>  1,
             'id'=> $folder_id,
         ]);
         }else{

@@ -56,7 +56,11 @@
                 <td>
                 <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                  </td>
-                <td><a href="{{$task->url}}">{{ $task->url}}</a></td>
+                 @if(isset($task->url))
+                <td><a href="{{$task->url}}" target="_blank">URLあり</a></td>
+                @else
+                <td>URLなし</td>
+                @endif
                 <td>{{ $task->comment}}</td>
                 <td>{{ $task->budget}}</td>
                 <td>{{ $task->remarks}}</td>

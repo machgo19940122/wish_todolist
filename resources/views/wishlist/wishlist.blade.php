@@ -15,12 +15,9 @@
           </div>
           <div class="list-group">
               @foreach($folders as $folder)
-              <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}" 
-                  class="list-group-item"
-
-              >
-                    {{ $folder->title }}
-                  </a>
+                  <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}" 
+                   class="list-group-item"> {{ $folder->title }}</a>
+                  <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >edit</a>
                 @endforeach
           </div>
         </nav>

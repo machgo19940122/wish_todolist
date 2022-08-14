@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Folder;
+use App\Models\TdTask;
+use App\Models\WishTask;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateFolder;
 
@@ -42,5 +44,61 @@ class FolderController extends Controller
     }
 
 
+    //フォルダーの新規作成
+    public function get_edit_folder(int $folder_id){
+        $folders = Folder::whereId($folder_id)->first();
+        return view('edit_folder', [
+            'folders'=>$folders
+          ]);
+    }
 
+
+    //folderの編集処理
+public function edit_folder(request $request)
+{
+    // 1
+    $folder =Folder::find($request->folder_id);
+    // 2
+    $folder->title = $request->title;
+    $folder->save();
+    // 3
+    if($folder->category == "0"){
+        return redirect()->route('wish_tasks.index', [
+            'category' => $folder->category,
+            'id'=> 0,
+        ]);
+    }else{
+        return redirect()->route('todo_tasks.index', [
+            'category' => $folder->category,
+            'id'=> 0,
+        ]);
+    }
 }
+
+//folder消去
+public function delete_folder(int $folder_id)
+{
+    $folder =Folder::find($folder_id);
+    TdTask::where('folder_id','=',$folder_id)->delete();
+    WishTask::where('folder_id','=',$folder_id)->delete();
+    Folder::where('id','=',$folder_id)->delete();
+    
+    if($folder->category == "0"){
+        return redirect()->route('wish_tasks.index', [
+            'category' => $folder->category,
+            'id'=> 0,
+        ]);
+    }else{
+        return redirect()->route('todo_tasks.index', [
+            'category' => $folder->category,
+            'id'=> 0,
+        ]);
+    }
+}
+
+    }
+
+
+
+
+

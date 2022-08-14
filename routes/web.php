@@ -45,6 +45,15 @@ Route::get('/add_folder/{category}', [App\Http\Controllers\FolderController::cla
 //フォルダー作成処理
 Route::post('/add_folder',[App\Http\Controllers\FolderController::class,'add_folder'])->name('add_folder')->middleware('login');
 
+//フォルダー修正・消去画面表示
+Route::get('/edit_folder/{folder_id}', [App\Http\Controllers\FolderController::class, 'get_edit_folder'])->name('get_edit_folder')->middleware('login');
+
+//フォルダー報編集の処理
+Route::post('/edit_folder/{folder_id}', [App\Http\Controllers\FolderController::class,'edit_folder'])->name('edit_folder')->middleware('login');
+
+//フォルダー消去の処理
+Route::delete('/delete_folder/{folder_id}', [App\Http\Controllers\FolderController::class,'delete_folder'])->name('delete_folder')->middleware('login');
+
 //todolistタスク作成画面表示
 Route::get('/td_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'get_add_tdtask'])->name('get_add_tdtask')->middleware('login');
 

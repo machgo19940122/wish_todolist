@@ -188,8 +188,9 @@ public function edit_todo_task(int $task_id, Request $request)
     $task->save();
 
     // 3
-    return redirect()->route('td_edit', [
-        'task_id' => $task_id,
+    return redirect()->route('todo_tasks.index', [
+        'category' => 1,
+        'id'=>$request->folder_id,
     ]);
 }
 
@@ -229,8 +230,9 @@ public function edit_wish_task(int $task_id, Request $request)
     $task->folder_id = $request->folder_id;
     $task->save();
     // 3
-    return redirect()->route('wish_edit', [
-        'task_id' => $task_id,
+    return redirect()->route('wish_tasks.index', [
+        'category' => 0,
+        'id'=>$request->folder_id,
     ]);
 }
 

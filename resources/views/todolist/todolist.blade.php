@@ -20,7 +20,8 @@
               >
                 {{ $folder->title }}
               </a>
-            @endforeach
+              <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >edit</a>
+              @endforeach
       
           </div>
         </nav>

@@ -2,9 +2,14 @@
 
 @section('content')
 <div class="container">
-<h1>to do list</h1>
-    <div class="row">
-      <div class="column col-md-8">
+<h1>who is your partner?</h1>
+
+<div class="row">
+  <div class="column col-md-8">
+        <div class="box21">
+            <p>タスクを共有できるパートナーを登録することができます。
+            登録できるパートナーは、１アカウントに対して１人です。</p>
+        </div>
           @if(!empty($no_friend_parameter))
       <form action="{{route('search_friend')}}" method="GET">
                     <div class="form-inline">

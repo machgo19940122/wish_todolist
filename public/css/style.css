@@ -21,7 +21,10 @@
 
 .my-navbar {
   align-items: center;
-  background:#D6909D;
+  background: -moz-linear-gradient(#ffb03c, #ff708d);
+  background: -webkit-linear-gradient(#ffb03c, #ff708d);
+  background: linear-gradient(to right, #ffb03c, #ff708d);
+  color: #FFF;
   display: flex;
   height: 6rem;
   justify-content: space-between;
@@ -82,7 +85,10 @@ main{
     padding: 0.5em;/*文字周りの余白*/
     display: inline-block;/*おまじない*/
     line-height: 1.3;/*行高*/
-    background:rgb(181, 178, 178);/*背景色*/
+    background: -moz-linear-gradient(#ffb03c, #ff708d);
+    background: -webkit-linear-gradient(#ffb03c, #ff708d);
+    background: linear-gradient(to right, #ffb03c, #ff708d);
+    color: #FFF;
     vertical-align: middle;
     border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
     margin-bottom: 40px;
@@ -150,4 +156,16 @@ a.button2:hover {
   box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
 }
 
-/* side  */
+
+/* //友達追加のメッセージ */
+.box21{
+  padding: 0.5em 1em;
+  background: -moz-linear-gradient(#ffb03c, #ff708d);
+  background: -webkit-linear-gradient(#ffb03c, #ff708d);
+  background: linear-gradient(to right, #ffb03c, #ff708d);
+  color: #FFF;
+}
+.box21 p {
+  margin: 0; 
+  padding: 0;
+}

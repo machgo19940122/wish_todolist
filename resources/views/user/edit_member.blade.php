@@ -16,7 +16,7 @@
     <div>
         <div>
             <div>
-                <div><h1>会員登録情報修正</h1></div>
+                <div><h1>edit your infomation </h1></div>
 
                 <div>
                     <form method="POST" action="{{route('edit_member',$user->id)}}" >

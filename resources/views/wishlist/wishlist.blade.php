@@ -69,4 +69,11 @@
       </div>
     </div>
   </div>
+    <!-- フラッシュメッセージ -->
+ <script>
+  @if (session('flash_message_7'))
+     $(function () {
+                    toastr.warning('{{ session('flash_message_7') }}');});
+  @endif
+  </script>
 @endsection

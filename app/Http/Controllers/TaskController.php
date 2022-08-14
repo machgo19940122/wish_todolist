@@ -13,21 +13,38 @@ class TaskController extends Controller
 {
     //todotask追加の表示（フォルダーId渡す）
     public function get_add_tdtask(int $folder_id){
-        $folder_id = $folder_id;
+        if($folder_id === 0){
+         //フラッシュメッセージ
+         Session::flash('flash_message_6', 'フォルダーを選択してください。');
+        // リダイレクト
+        return redirect()->route('todo_tasks.index', [
+            'category' => 0,
+            'id'=> $folder_id,
+        ]);
+        }else{
         $folders=Folder::whereId($folder_id)->first();
         return view('/todolist/todolist_tasks', [
             'folder_id'=>$folder_id,
             'folders'=>$folders
           ]);
-    }
+    }}
     //wishtask追加の表示（フォルダーId渡す）
     public function get_add_wishtask(int $folder_id){
-        $folder_id = $folder_id;
+
+        if($folder_id === 0){
+            //フラッシュメッセージ
+            Session::flash('flash_message_7', 'フォルダーを選択してください。');
+           // リダイレクト
+           return redirect()->route('todo_tasks.index', [
+               'category' => 0,
+               'id'=> $folder_id,
+           ]);
+           }else{
         $folders=Folder::whereId($folder_id)->first();
             return view('/wishlist/wishlist_tasks', [
                 'folder_id'=>$folder_id,
                 'folders'=>$folders
-              ]);
+              ]);}
         
     }
 
@@ -82,7 +99,7 @@ class TaskController extends Controller
 //task登録
 
 public function add_td_task(int $id,request $request){
-   
+            
 
             // バリデーション
             $this->validate($request,[

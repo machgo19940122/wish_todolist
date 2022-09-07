@@ -13,15 +13,21 @@
               フォルダを追加する
             </a>
           </div>
-          <div class="list-group">
+
+          <div class="list-group row">
               @foreach($folders as $folder)
-                  <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}" 
-                   class="list-group-item"> {{ $folder->title }}</a>
-                  <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >edit</a>
+              <div class="col-md-8 p-0">
+                <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}" 
+                 class="list-group-item"> {{ $folder->title }}</a>
+              </div>
+              <div class="col-md-4">
+                <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}"  class="list-group-item">edit</a>
+              </div>
                 @endforeach
           </div>
         </nav>
       </div>
+
       <div class="column col-md-8">
         <div class="panel panel-default">
           <div class="panel-heading">タスク</div>

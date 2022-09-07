@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user/login');
 });
-
 //会員登録画面の表示
 Route::get('/register',function(){return view('user/member_register');})->name('register');
+
 //会員登録処理
 Route::post('/register', [App\Http\Controllers\UserController::class, 'postSignup'])->name('postsignup');
 // //ログアウト

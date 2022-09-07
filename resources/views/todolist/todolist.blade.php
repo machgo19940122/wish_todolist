@@ -7,23 +7,19 @@
       <div class="col col-md-4">
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
-          <div class="panel-body">
-            <a href="/add_folder/1" class="btn btn-default btn-block">
-              フォルダを追加する
-            </a>
-          </div>
-          <div class="list-group">
-            
-          @foreach($folders as $folder)
-              <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
-                  class="list-group-item"
-              >
-                {{ $folder->title }}
-              </a>
-              <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >edit</a>
-              @endforeach
-      
-          </div>
+            <div class="panel-body">
+                <a href="/add_folder/1" class="btn btn-default btn-block">
+                  フォルダを追加する
+                </a>
+             </div>
+          
+                @foreach($folders as $folder)
+                <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
+                      class="list-group-item">
+                    {{ $folder->title }}</a>
+                  <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >編集</a>
+                  @endforeach
+           
         </nav>
       </div>
       <div class="column col-md-8">

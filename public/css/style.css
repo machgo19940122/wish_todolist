@@ -2,15 +2,10 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
 
 
-
-
 /* ヘッダー */
-
 .header_topics{
   font-weight: lighter;
 }
-
-
 .navbar {
   margin: 2rem 0 2.5rem 0;
 }
@@ -64,13 +59,14 @@ a:hover{
 }
 
 /* メイン全画面共通 */
-main{
-  display: flex;
+/* サイドバーのmarginを設定 */
+.side_margin{
+  margin-left:20%;
 }
 
-/* サイドバーのmarginを設定 */
-
-
+.side_margin_adjust{
+  margin-right:20%;
+}
 
 /* タグのCSS */
   h1 {

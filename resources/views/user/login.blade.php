@@ -1,9 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="form-group">
-    
-         
+<div class="m-auto side_margin_adjust">
                 <div>
                     <h1>login</h1></div>
                     @if(isset($login_error))
@@ -13,7 +11,7 @@
                     @endif
                 <div>
 
-             <form method="POST" action="{{route('signin')}}" >
+             <form method="POST" action="{{route('signin')}}" class="form-group">
                         <div class="mb-3">
                             <label class="form-label">email</label>
                             <input id="email" name="email" type="email" name="email" class="form-control" maxlength="50" required autofocus>
@@ -27,25 +25,22 @@
                         </div>
 
                         <div>
-                            <div class="">
+                            <div class="mt-3">
                                 <button type="submit" class="btn  btn-light" action="{{ route('signin') }}">Login
                                 </button>
                             </div>
                             {{ csrf_field() }}
                         </div>
-                    </form>
-              
-        
-    
+                </form>
 </div>
+
 <script src="{{ asset('/js/main.js') }}"></script>
 <script src="{{ asset('/js/password.js') }}"></script>
-
-    <!-- フラッシュメッセージ -->
-    <script>
+<!-- フラッシュメッセージ -->
+ <script>
             @if (session('flash_message_5'))
                 $(function () {
                                toastr.success('{{ session('flash_message_5') }}'); });
            @endif
-       </script>
+</script>
 @endsection

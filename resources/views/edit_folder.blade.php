@@ -1,7 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="side_margin">
+
 
   <div class="container">
     <h1>edit your folder name </h1>
@@ -35,6 +35,6 @@
       </div>
     </div>
   </div>
-</div>
+
   <script src="{{ asset('/js/expense.js') }}"></script>
 @endsection

@@ -44,7 +44,7 @@
         </ul>
     </div>
 
-    <div class="main_content w-80 p-3">
+    <div class="w-80 p-3 side_margin">
       @yield('content')
     </div>
   </main>

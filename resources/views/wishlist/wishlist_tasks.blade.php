@@ -62,7 +62,7 @@
 
 
               <div class="text-right">
-                <button type="submit" class="btn btn-light">送信</button>
+                <button type="submit" class="btn btn-light">保存</button>
               </div>
             </form>
           </div>

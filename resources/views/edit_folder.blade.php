@@ -1,6 +1,8 @@
 @extends('common/header_side')
 
 @section('content')
+<div class="side_margin">
+
   <div class="container">
     <h1>edit your folder name </h1>
     <div class="row">
@@ -8,26 +10,31 @@
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダー名を編集する</div>
           <div class="panel-body">
-          <form action="{{ route('edit_folder', ['folder_id' => $folders->id])}}" method="POST">
-            
+
+      <div class="row">
+        <form action="{{ route('edit_folder', ['folder_id' => $folders->id])}}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $folders->title }}" />
               </div>
-            
+              
               <input  name ="folder_id"value="{{$folders->id}}" hidden>
               <button type="submit" class="btn btn-light">更新</button>
          </form>
-         <form action="{{ route('delete_folder', ['folder_id' => $folders->id])}}" method="POST">
-                                      @csrf 
-                                      {{ method_field('DELETE') }}
-                                      <button type="submit" class="btn btn-light" onClick="delete_alert(event);return false;">フォルダーを消す</button>
-            </form>
+        
+        
+          <form action="{{ route('delete_folder', ['folder_id' => $folders->id])}}" method="POST">
+                                       @csrf 
+                                       {{ method_field('DELETE') }}
+                                       <button type="submit" class="btn btn-light" onClick="delete_alert(event);return false;">フォルダーを消す</button>
+           </form>
+        
 
-        </nav>
+        
       </div>
     </div>
   </div>
+</div>
   <script src="{{ asset('/js/expense.js') }}"></script>
 @endsection

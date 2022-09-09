@@ -28,11 +28,11 @@
             <div class="form-group">
               <label for="title">フォルダ名</label>
 
-                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" />
+                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" >
               </div>
                   <input name="category" id="title" value="{{$category}}" hidden> 
               <div class="text-right">
-                <button type="submit" class="btn btn-light">送信</button>
+                <button type="submit" class="btn btn-light">保存</button>
               </div>
             </form>
           </div>
@@ -40,4 +40,5 @@
       </div>
     </div>
   </div>
+</div>
 @endsection

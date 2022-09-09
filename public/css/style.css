@@ -2,11 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
 
 
-/* .main {
-  margin: auto;
-  width: 80%;
-  padding-left: 80px;
-} */
+
 
 /* ヘッダー */
 
@@ -72,9 +68,8 @@ main{
   display: flex;
 }
 
-.container{
-  margin-left:20%;
-}
+/* サイドバーのmarginを設定 */
+
 
 
 /* タグのCSS */
@@ -116,7 +111,7 @@ body {
 .wrap {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%; 
   margin-top: -86px;
   margin-left: -89px;
   text-align: center;
@@ -169,3 +164,4 @@ a.button2:hover {
   margin: 0; 
   padding: 0;
 }
+

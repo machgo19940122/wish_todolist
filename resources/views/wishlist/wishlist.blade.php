@@ -21,7 +21,7 @@
                  class="list-group-item"> {{ $folder->title }}</a>
               </div>
               <div class="col-md-4">
-                <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}"  class="list-group-item">edit</a>
+                <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}"  class="list-group-item">edit <i class="fa-solid fa-arrow-right"></i></a>
               </div>
                 @endforeach
           </div>

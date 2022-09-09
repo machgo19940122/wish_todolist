@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>経費管理APP</title>
+  <title>wish and todo </title>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+  <!-- fontawsome -->
+  <script src="https://kit.fontawesome.com/0ee9da3264.js" crossorigin="anonymous"></script>
   <!-- フラッシュメッセージCSS -->
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
@@ -32,7 +34,7 @@
   </header>
 
   <main>  
-    <div class="side" id="side_bar">  
+    <div class="side w-20 p-3" id="side_bar">  
         <ul class="nav nav-stacked">
                 <li><a href="/wish/0/folders/0/tasks" >wishlist</a></li>
                 <li ><a href="/todo/0/folders/0/tasks">todolist</a></li>
@@ -42,7 +44,7 @@
         </ul>
     </div>
 
-    <div class="main_content">
+    <div class="main_content w-80 p-3">
       @yield('content')
     </div>
   </main>

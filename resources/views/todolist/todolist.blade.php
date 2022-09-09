@@ -13,12 +13,18 @@
                 </a>
              </div>
           
-                @foreach($folders as $folder)
-                <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
-                      class="list-group-item">
-                    {{ $folder->title }}</a>
-                  <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" >編集</a>
-                  @endforeach
+
+             <div class="list-group row">
+              @foreach($folders as $folder)
+              <div class="col-md-8 p-0">
+                      <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
+                       class="list-group-item">{{ $folder->title }}</a>
+              </div>
+              <div class="col-md-4">
+              <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" class="list-group-item">edit</a>
+              </div>
+                @endforeach
+          </div>
            
         </nav>
       </div>

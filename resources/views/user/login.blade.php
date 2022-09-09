@@ -1,7 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="m-auto side_margin_adjust">
+<div class="side_margin_adjust">
                 <div>
                     <h1>login</h1></div>
                     @if(isset($login_error))

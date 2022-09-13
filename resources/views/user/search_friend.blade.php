@@ -35,12 +35,12 @@
                               追加
                             </button>
                             {{ csrf_field() }}
-                          </td>
+                          </form>
+                        </td>
                     </tr>
                       @empty
                         <td>見つかりませんでした。</td>
                       @endforelse
-                    </form>
               </tr>
             </tbody>
           </table>

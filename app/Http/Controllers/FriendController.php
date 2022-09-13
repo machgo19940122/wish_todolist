@@ -11,7 +11,7 @@ class FriendController extends Controller
 
 
 //友達追加画面の表示
-public function  get_friend(int $id)
+public function  get_friend(int $id,request $request)
 {
 $no_friend_parameter=null;
 $friends = Friend::where('follow_user_id', '=', $id)->where('status','=','active')->first();
@@ -45,6 +45,7 @@ public function  delete_friend(int $id)
 //友達の検索
 public function  search_friend(request $request)
 {   
+
   $keyword = $request ->input('keyword');
   $query = User::query();
   if(!empty($keyword)){
@@ -61,10 +62,8 @@ public function  search_friend(request $request)
 }
 
 //友達の追加
-
 public function  add_friend(int $friend_id)
 {  
- 
   //追加する友達に既に友達登録がないかを確認
   $check_friend=null;
   $check_friend=Friend::where('follow_user_id','=',$friend_id)->get();
@@ -75,25 +74,23 @@ public function  add_friend(int $friend_id)
     return redirect()->route('search_friend', [
       'keyword' => session('search_keyword'),
   ]);
-
-  }elseif(!empty($check_friend)){
+  }elseif(!isset($check_friend)){
     //既に友達のいるIDを追加しようとした場合
     Session::flash('flash_message_2', 'このユーザーは既に他の人と共有しています。');
     return redirect()->route('search_friend', [
       'keyword' => session('search_keyword'),
-  ]);
+     ]);
   }else{
-    //その他
-    $add_friend_1 = new Friend([
-      'follow_user_id' => $friend_id,
-      'followed_user_id' => session('id')
-    ]);
-    $add_friend_2 = new Friend([
-      'follow_user_id' => session('id'),
-      'followed_user_id' => $friend_id
-    ]);
-    $add_friend_1->save();
-    $add_friend_2->save();
+    $add_friend_1 = new Friend();
+    $add_friend_1 -> follow_user_id = $friend_id;
+    $add_friend_1 -> followed_user_id = session('id');
+    $add_friend_1 -> save();
+
+    $add_friend_2 = new Friend();
+    $add_friend_2->follow_user_id = session('id');
+    $add_friend_2->followed_user_id= $friend_id;
+    $add_friend_2 -> save();
+      
     return redirect()->route('get_friend', [
       'id' => session('id'),
   ]);

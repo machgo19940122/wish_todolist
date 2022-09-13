@@ -11,7 +11,7 @@
                       <input type="search" name="keyword"      
                       class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" 
                       >
-                      <button type="submit" class="btn btn-outline-primary">search</button>
+                      <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
         </form>   
 

@@ -153,20 +153,13 @@ a.button2:hover {
 
 
 /* //友達追加のメッセージ */
-.box21{
-  padding: 0.5em 1em;
-  background: -moz-linear-gradient(#ffb03c, #ff708d);
-  background: -webkit-linear-gradient(#ffb03c, #ff708d);
-  background: linear-gradient(to right, #ffb03c, #ff708d);
-  color: #FFF;
-}
-.box21 p {
-  margin: 0; 
-  padding: 0;
-}
+
 
 
 .float-right{
   float:right;
 }
 
+.w-50{
+  width:50%;
+}

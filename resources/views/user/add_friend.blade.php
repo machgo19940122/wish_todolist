@@ -5,23 +5,26 @@
 <h1>who is your partner?</h1>
 
 <div class="row">
-  <div class="column col-md-8">
-        <div class="box21">
-            <p>タスクを共有できるパートナーを登録することができます。
-            登録できるパートナーは、１アカウントに対して１人です。</p>
+ 
+        <div class="">
+            <h6>タスクを共有できるパートナーを登録することができます。<br>
+            登録できるパートナーは、１アカウントに対して１人です。</h6>
         </div>
+
           @if(!empty($no_friend_parameter))
-      <form action="{{route('search_friend')}}" method="GET">
-                    <div class="form-inline">
-                      <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" >
-                      <button type="submit" class="btn btn-outline-primary">search</button>
+         <form action="{{route('search_friend')}}" method="GET">
+                    <div class="w-50">
+                          <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" >
+                          <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
-        </form>   
+         </form>   
         
 
-         <div class="panel panel-default">
+       
       
-           <div>まだ登録されていません。</div>
+           <div class="my-5">※まだ登録されていません。</div>
+
+
            @else
           <table class="table">
             <thead>

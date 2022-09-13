@@ -37,7 +37,7 @@
                                 <span id="buttonEye" class="fa fa-eye"></span>
                             </div>
                         
-                            <div class="mb-3">
+                            <div class="mb-3 float-right">
                                 <button type="submit" class="btn  btn-light">
                                     更新
                                 </button>

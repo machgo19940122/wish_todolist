@@ -34,7 +34,7 @@
   </header>
 
   <main>  
-    <div class="side w-10 p-3" id="side_bar">  
+    <div class="side w-10" id="side_bar">  
         <ul class="nav nav-stacked">
                 <li><a href="/wish/0/folders/0/tasks" >wishlist</a></li>
                 <li ><a href="/todo/0/folders/0/tasks">todolist</a></li>
@@ -44,7 +44,7 @@
         </ul>
     </div>
 
-    <div class="w-90 p-3 side_margin">
+    <div class="w-90 side_margin">
       @yield('content')
     </div>
   </main>

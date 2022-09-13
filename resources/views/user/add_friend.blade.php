@@ -1,7 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="container width100">
+<div class="container-fluid">
 <h1>who is your partner?</h1>
 
 <div class="row">

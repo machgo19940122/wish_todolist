@@ -53,7 +53,7 @@ a:hover{
   opacity:50%;
 }
 
-
+/* 非表示 */
 .display_none{
   display: none;
 }
@@ -163,5 +163,10 @@ a.button2:hover {
 .box21 p {
   margin: 0; 
   padding: 0;
+}
+
+
+.float-right{
+  float:right;
 }
 

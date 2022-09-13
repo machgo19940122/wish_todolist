@@ -1,6 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
+
 <div class="container-fluid">
   
   <form action="{{route('search_friend')}}" method="GET" class="form-group w-50">

@@ -1,7 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="container width100">
+<div class="container-fluid width100">
 <h1>to do list</h1>
     <div class="row">
       <div class="col col-md-4">

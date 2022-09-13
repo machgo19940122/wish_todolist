@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container width100">
+<div class="container-fluid width100">
      <h1>wish list</h1>
    <div class="row">
       <div class="col col-md-4">

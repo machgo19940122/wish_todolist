@@ -46,6 +46,11 @@ public function  delete_friend(int $id)
 public function  search_friend(request $request)
 {   
 
+     // バリデーション
+     $this->validate($request,[
+      'keyword' => 'required',
+  ]);
+
   $keyword = $request ->input('keyword');
   $query = User::query();
   if(!empty($keyword)){

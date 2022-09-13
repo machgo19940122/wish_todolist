@@ -1,13 +1,23 @@
 @extends('common/header_side')
 
 @section('content')
+<!-- バリデーションエラーメッセージ-->
+@if ($errors->any())
+  <div class="alert alert-light">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container-fluid">
-<h1>who is your partner?</h1>
 
+  <h1>who is your partner?</h1>
 <div class="row">
  
         <div class="">
-            <h6>タスクを共有できるパートナーを登録することができます。<br>
+            <h6>タスクを共有できるパートナーを登録することができます。
             登録できるパートナーは、１アカウントに対して１人です。</h6>
         </div>
 
@@ -20,8 +30,6 @@
          </form>   
         
 
-       
-      
            <div class="my-5">※まだ登録されていません。</div>
 
 

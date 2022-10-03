@@ -33,7 +33,8 @@
                         
                             <div class="mb-3">
                             <label for="password" class="col-md-4">Password</label>
-                                <input id="textPassword" type="text" class="form-control" name="user_password" maxlength="128" placeholder="パスワードを変更する場合のみ入力して下さい">
+                                <input id="textPassword" type="text" class="form-control" name="user_password" maxlength="128" placeholder="パスワードを変更する場合のみ入力して下さい"> 
+                                
                                 <span id="buttonEye" class="fa fa-eye"></span>
                             </div>
                         

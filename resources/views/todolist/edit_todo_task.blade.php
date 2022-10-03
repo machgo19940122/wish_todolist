@@ -10,9 +10,7 @@
           <div class="panel-body">
             <form action="" method="POST">
               
-                
-                
-            
+
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -36,7 +34,7 @@
 
               <div class="form-group">
                 <label for="comment">コメント</label>
-                <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" placeholder="登録時のメモにご利用ください”>
+                <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" placeholder="登録時のメモにご利用ください" >
               </div>
 
 
@@ -56,13 +54,16 @@
               <button type="submit" class="btn btn-light">更新</button>
          </form>
 
+         
             <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
                                       @csrf 
                                       {{ method_field('DELETE') }}
-                                      <button type="submit" class="btn btn-light">タスクを消す</button>
+                                      <button type="submit" class="btn btn-light" onClick="delete_alert_task(event);return false;">タスクを消す</button>
             </form>
+          </div>
         </nav>
       </div>
     </div>
   </div>
+  <script src="{{ asset('/js/expense.js') }}"></script>
 @endsection

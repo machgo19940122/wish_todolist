@@ -28,6 +28,7 @@
                                        @csrf 
                                        {{ method_field('DELETE') }}
                                        <button type="submit" class="btn btn-light" onClick="delete_alert(event);return false;">フォルダーを消す</button>
+                                       
            </form>
         
 

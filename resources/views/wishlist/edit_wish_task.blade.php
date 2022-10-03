@@ -9,10 +9,6 @@
           <div class="panel-heading">"{{$tasks->title}}"を編集する</div>
           <div class="panel-body">
                 <form action="" method="POST">
-                    
-                      
-                       
-                 
                     @csrf
                     <div class="form-group">
                       <label for="title">タイトル</label>
@@ -36,7 +32,7 @@
 
                     <div class="form-group">
                       <label for="comment">コメント</label>
-                      <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" placeholder="登録時のメモにご利用ください”>
+                      <input type="text" class="form-control" name="comment" id="comment" value="{{ $tasks->comment}}" placeholder="登録時のメモにご利用ください">
                     </div>
 
 
@@ -52,20 +48,26 @@
                           <option value="1"  <?php if($tasks->status == "1"): ?>selected<?php endif ?>>着手中</option>
                           <option value="2"  <?php if($tasks->status == "2"): ?>selected<?php endif ?>>完了</option>
                     </div>
+                
                     <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
                     <button type="submit" class="btn btn-light">更新</button>
               </form>
+              
+            </div>
+             <div class="">
+               <form action="{{ route('delete_wish_task', ['task_id' => $tasks->id])}}" method="POST">
+                                   @csrf 
+                                   {{ method_field('DELETE') }}
+                                   <button type="submit" class="btn" onClick="delete_alert_task(event);return false;">タスクを消す
+                                   </button>
+                </form>
 
-              <form action="{{ route('delete_wish_task', ['task_id' => $tasks->id])}}" method="POST">
-                                  @csrf 
-                                  {{ method_field('DELETE') }}
-                                  <button type="submit" class="btn btn-light">タスクを消す
-                                  </button>
-              </form>
+             </div> 
+             
 
-          </div>
         </nav>
       </div>
     </div>
   </div>
+  <script src="{{ asset('/js/expense.js') }}"></script>
 @endsection

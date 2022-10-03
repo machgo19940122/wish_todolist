@@ -158,3 +158,22 @@ a.button2:hover {
 .w-50{
   width:50%;
 }
+
+.test{
+  display: none;
+}
+
+
+@media screen and (max-width:600px){
+  .side_1{
+    display:none;
+  }
+
+ 
+}
+
+@media screen and (min-width:600px){
+  .side_2{
+    display:none;
+  }
+}

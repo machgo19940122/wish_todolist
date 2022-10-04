@@ -63,6 +63,12 @@ Route::post('/td_task/{folder_id}', [App\Http\Controllers\TaskController::class,
 //wishlistタスク作成画面表示
 Route::get('/wish_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'get_add_wishtask'])->name('get_add_wishtask')->middleware('login');
 
+//wishタスクの詳細画面
+Route::get('/more_detail_wish/{task_id}', [App\Http\Controllers\TaskController::class,'more_detail_wish'])->name('more_detail_wish')->middleware('login');
+
+//wishタスクの詳細画面
+Route::get('/more_detail_todo/{task_id}', [App\Http\Controllers\TaskController::class,'more_detail_todo'])->name('more_detail_todo')->middleware('login');
+
 //tdタスク登録
 Route::post('/wish_task/{folder_id}', [App\Http\Controllers\TaskController::class, 'add_wish_task'])->name('add_wish_task')->middleware('login');
 

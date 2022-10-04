@@ -3,14 +3,17 @@
 @section('content')
   <div class="container">
     <h1>todo list</h1>
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">"{{$tasks->title}}"を編集する</div>
-          <div class="panel-body">
-            <form action="" method="POST">
-              
+    <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
+                                      @csrf 
+                                      {{ method_field('DELETE') }}
+                                      <button type="submit" class="btn btn-light " onClick="delete_alert_task(event);return false;"><i class="fa-solid fa-trash"></i></button>
+      </form>
 
+
+    <div class="row">
+      <div class="col col-md-6">
+            <form action="" method="POST">
+          
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -53,15 +56,6 @@
               <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
               <button type="submit" class="btn btn-light">更新</button>
          </form>
-
-         
-            <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
-                                      @csrf 
-                                      {{ method_field('DELETE') }}
-                                      <button type="submit" class="btn btn-light" onClick="delete_alert_task(event);return false;">タスクを消す</button>
-            </form>
-          </div>
-        </nav>
       </div>
     </div>
   </div>

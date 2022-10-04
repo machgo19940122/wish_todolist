@@ -39,7 +39,7 @@
               </div>
 
               <div class="form-group">
-                <label for=”who">予算</label>
+                <label for=”who”>予算</label>
                 <input type="text" class="form-control" name="budget" id="budget" value="{{ old('budget') }}" />
               </div>
 

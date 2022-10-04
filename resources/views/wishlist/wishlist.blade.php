@@ -49,30 +49,33 @@
                         <th>やること</th>
                         <th>期限</th>
                         <th>状況</th>
-                        <th>URL</th>
+                        <!-- <th>URL</th>
                         <th>コメント</th>
                         <th>予算</th>
-                        <th>備考欄</th>
+                        <th>備考欄</th> -->
                         <th></th>
                       </tr>
                       </thead>
                       <tbody>
                       @foreach($tasks as $task)
                         <tr>
-                          <td>{{ $task->title}}</td>
+                          <td>{{ $task->title}}</a></td>
                           <td>{{ $task->due_date}}</td>
                           <td>
                           <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                           </td>
-                          @if(isset($task->url))
+                          <!-- @if(isset($task->url))
                           <td><a href="{{$task->url}}" target="_blank">URLあり</a></td>
                           @else
                           <td>URLなし</td>
                           @endif
                           <td>{{ $task->comment}}</td>
                           <td>{{ $task->budget}}</td>
-                          <td>{{ $task->remarks}}</td>
-                          <td><a href="{{ route('wish_edit', ['task_id' => $task->id]) }}" >編集</a></td>
+                          <td>{{ $task->remarks}}</td> -->
+                          
+                          <td><a href="{{ route('more_detail_wish', ['task_id' => $task->id]) }}" >詳細</a></td>
+                          <!-- <td><a href="{{ route('wish_edit', ['task_id' => $task->id]) }}" >shousai 
+                          </a></td> -->
                         </tr>
                       @endforeach
                     </tbody>

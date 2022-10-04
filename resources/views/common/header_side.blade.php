@@ -27,7 +27,7 @@
         <a class="my-navbar-item" href="/login">ログイン</a>
         <a class="my-navbar-item" href="/register">会員登録</a>
         @else
-        <span class="my-navbar-item">user:{{session('id')}}/name:{{session('name')}}</span>
+        <span class="my-navbar-item text-sm-start">name:{{session('name')}}</span>
         @endif
       </div>
     </nav>
@@ -35,6 +35,7 @@
 
   <main>  
     <div class="side w-10" id="side_bar">  
+      
         <ul class="nav nav-stacked side_1">
                 <li><a href="/wish/0/folders/0/tasks" >wishlist</a></li>
                 <li ><a href="/todo/0/folders/0/tasks">todolist</a></li>
@@ -50,6 +51,7 @@
                 <li><a href="/add_friend/{{session('id')}}"><i class="fa-solid fa-user-group"></i></a></li>
                 <li><a href="/logout"><form  action="{{ route('logout') }}" method="GET"><i class="fa-solid fa-right-from-bracket"></i></form></a></li>
         </ul>
+
     </div>
 
     <div class="w-90 side_margin">

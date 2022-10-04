@@ -3,11 +3,17 @@
 @section('content')
   <div class="container">
     <h1>wish list</h1>
+    <form action="{{ route('delete_wish_task', ['task_id' => $tasks->id])}}" method="POST">
+                                   @csrf 
+                                   {{ method_field('DELETE') }}
+                                   <button type="submit" class="btn" onClick="delete_alert_task(event);return false;">
+                                   <i class="fa-solid fa-trash"></i>
+                                   </button>
+      </form>
+
     <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">"{{$tasks->title}}"を編集する</div>
-          <div class="panel-body">
+      <div class="col col-md-6">
+       
                 <form action="" method="POST">
                     @csrf
                     <div class="form-group">
@@ -51,23 +57,9 @@
                 
                     <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
                     <button type="submit" class="btn btn-light">更新</button>
-              </form>
-              
+              </form> 
             </div>
-             <div class="">
-               <form action="{{ route('delete_wish_task', ['task_id' => $tasks->id])}}" method="POST">
-                                   @csrf 
-                                   {{ method_field('DELETE') }}
-                                   <button type="submit" class="btn" onClick="delete_alert_task(event);return false;">タスクを消す
-                                   </button>
-                </form>
-
-             </div> 
-             
-
-        </nav>
       </div>
-    </div>
   </div>
   <script src="{{ asset('/js/expense.js') }}"></script>
 @endsection

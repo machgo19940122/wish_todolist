@@ -45,7 +45,7 @@
               <div class="form-group">
                 <label for="who">コメント</label>
                 <input type="text" class="form-control" name="comment" id="comment" value="{{ old('comment') }}" />
-              </div>
+              </div> 
 
 
               <div class="form-group">
@@ -53,7 +53,7 @@
                 <input type="text" class="form-control" name="remarks" id="remarks" value="{{ old('remarks') }}" />
               </div>
 
-              <!-- フォルダーIDをセット -->
+              
               <input  name ="folder_id"value="{{$folder_id}}" hidden>
               <input  name ="status" value="0" hidden>
               

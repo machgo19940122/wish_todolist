@@ -47,10 +47,10 @@
               <th>やること</th>
               <th>期限</th>
               <th>状況</th>
-              <th>URL</th>
+              <!-- <th>URL</th>
               <th>担当</th>
               <th>コメント</th>
-              <th>備考</th>
+              <th>備考</th> -->
             </tr>
             </thead>
             <tbody>
@@ -60,16 +60,8 @@
                 <td>{{ $task->due_date}}</td>
                 <td>
                 <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
-                 </td>
-                 @if(isset($task->url))
-                <td><a href="{{$task->url}}" target="_blank">URLあり</a></td>
-                @else
-                <td>URLなし</td>
-                @endif
-                <td>{{ $task->who}}</td>
-                <td>{{ $task->comment}}</td>
-                <td>{{ $task->remarks}}</td>
-                <td><a href="{{ route('td_edit', ['task_id' => $task->id]) }}" >編集</a></td>
+                <td><a href="{{ route('more_detail_todo', ['task_id' => $task->id]) }}" >詳細
+                </a></td> 
               </tr>
             @endforeach
        

@@ -203,7 +203,23 @@ public function get_edit_wish_task(int $task_id){
         'tasks'=>$tasks
      ]);
 }
+//wish詳細
+public function more_detail_wish(int $task_id){
+    $tasks = WishTask::find($task_id);
+    return view('wishlist/more_detail_wish',
+    [
+        'tasks'=>$tasks
+     ]);
+}
 
+//todo詳細
+public function more_detail_todo(int $task_id){
+    $tasks = TdTask::find($task_id);
+    return view('todolist/more_detail_todo',
+    [
+        'tasks'=>$tasks
+     ]);
+}
 
 //td削除
 public function delete_td_task(int $task_id)

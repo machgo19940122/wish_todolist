@@ -177,3 +177,11 @@ a.button2:hover {
     display:none;
   }
 }
+
+table.row th,
+table.row td{
+
+  width:100%;
+  display:block;
+
+}

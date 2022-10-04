@@ -15,10 +15,8 @@
 
   <h1>who is your partner?</h1>
 <div class="row">
- 
         <div class="">
-            <h6>タスクを共有できるパートナーを登録することができます。
-            登録できるパートナーは、１アカウントに対して１人です。</h6>
+            <h6>１アカウントに対して１人、共有するパートナーを設定できます。</h6>
         </div>
 
           @if(!empty($no_friend_parameter))

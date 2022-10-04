@@ -106,6 +106,7 @@ public function add_td_task(int $id,request $request){
             $this->validate($request,[
                 'title' => 'required',
                 'due_date' => 'required',
+
             ]);
     
             // DBインサート
@@ -131,12 +132,15 @@ public function add_td_task(int $id,request $request){
             ]);
 }
 
+//wish追加
+
 public function add_wish_task(int $id,request $request){
    
             // バリデーション
             $this->validate($request,[
                 'title' => 'required',
                 'due_date' => 'required',
+                // 'budget'=>'int',
             ]);
     
             // DBインサート

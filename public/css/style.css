@@ -62,7 +62,7 @@ a:hover{
 /* メイン全画面共通 */
 /* サイドバーのmarginを設定 */
 .side_margin{
-  margin-left:20%;
+  padding-left:20%;
 }
 
 .side_margin_adjust{
@@ -184,4 +184,8 @@ table.row td{
   width:100%;
   display:block;
 
+}
+
+.test{
+  margin:10px;
 }

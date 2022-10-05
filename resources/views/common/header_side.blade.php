@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="">
   <header>
     <nav class="my-navbar">
       <a class="my-navbar-brand header_topics" href="/top">Wish and Todo List</a>
@@ -34,7 +34,7 @@
   </header>
 
   <main>  
-    <div class="side w-10" id="side_bar">  
+    <div class="side w-md-15" id="side_bar">  
       
         <ul class="nav nav-stacked side_1">
                 <li><a href="/wish/0/folders/0/tasks" >wishlist</a></li>
@@ -54,7 +54,7 @@
 
     </div>
 
-    <div class="w-90 side_margin">
+    <div class="w-md-85 side_margin">
       @yield('content')
     </div>
   </main>

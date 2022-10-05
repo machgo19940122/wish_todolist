@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="container">
-    <h1>wish list</h1>
+<h1>wish list</h1>
+<div class="mw-50">
 
     <div>
      <button class="btn">
@@ -12,8 +12,8 @@
       </button>
     </div>
 
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
+    
+      <div class="col-md-6">
                     <div class="form-group">
                       <label for="title">タイトル</label>
                       <input type="text" class="form-control" name="title" id="title" value="{{ $tasks->title }}" readonly/>

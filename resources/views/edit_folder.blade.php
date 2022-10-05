@@ -12,27 +12,27 @@
           <div class="panel-body">
 
       <div class="row">
-        <form action="{{ route('edit_folder', ['folder_id' => $folders->id])}}" method="POST">
-              @csrf
-              <div class="form-group">
-                <label for="title">タイトル</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{ $folders->title }}" />
-              </div>
-              
-              <input  name ="folder_id"value="{{$folders->id}}" hidden>
-              <button type="submit" class="btn btn-light">更新</button>
-         </form>
-        
-        
-          <form action="{{ route('delete_folder', ['folder_id' => $folders->id])}}" method="POST">
-                                       @csrf 
-                                       {{ method_field('DELETE') }}
-                                       <button type="submit" class="btn btn-light" onClick="delete_alert(event);return false;">フォルダーを消す</button>
-                                       
-           </form>
-        
+      <form action="{{ route('delete_folder', ['folder_id' => $folders->id])}}" method="POST">
+                                         @csrf 
+                                         {{ method_field('DELETE') }}
+                                         <button type="submit" class="btn btn-light float-right" onClick="delete_alert(event);return false;">
+                                         <i class="fa-solid fa-trash"></i>
+                                         </button>
+                                         
+             </form>
 
-        
+        <div>
+          <form action="{{ route('edit_folder', ['folder_id' => $folders->id])}}" method="POST">
+                @csrf
+                <div class="mb-3">
+                  <input type="text" class="form-control mt-5" name="title" id="title" value="{{ $folders->title }}" />
+                </div>
+                
+                <input  name ="folder_id"value="{{$folders->id}}" hidden>
+                <button type="submit" class="btn btn btn-light  float-right">更新</button>
+           </form>
+
+        </div>
       </div>
     </div>
   </div>

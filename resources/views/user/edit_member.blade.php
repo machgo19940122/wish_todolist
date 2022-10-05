@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<div class="container-fluid">
+<div class="col-md-6">
                     <div><h1>edit your infomation </h1></div>
                      <form method="POST" action="{{route('edit_member',$user->id)}}" >
                    

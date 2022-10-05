@@ -1,19 +1,21 @@
 @extends('common/header_side')
 
 @section('content')
-  <div class="container">
-    <h1>todo list</h1>
-    <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
-                                      @csrf 
-                                      {{ method_field('DELETE') }}
-                                      <button type="submit" class="btn btn-light " onClick="delete_alert_task(event);return false;"><i class="fa-solid fa-trash"></i></button>
-      </form>
+<h1>todo list</h1>
+  <div class="">
+    
+
+        <form action="{{ route('delete_td_task', ['task_id' => $tasks->id])}}" method="POST">
+                                          @csrf 
+                                          {{ method_field('DELETE') }}
+                                          <button type="submit" class="btn btn-light " onClick="delete_alert_task(event);return false;"><i class="fa-solid fa-trash"></i></button>
+          </form>
+
+     
 
 
-    <div class="row">
-      <div class="col col-md-6">
-            <form action="" method="POST">
-          
+    <div class="col-sm-6"> 
+          <form action="" method="POST">
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -53,10 +55,12 @@
                           <option value="1"  <?php if($tasks->status == "1"): ?>selected<?php endif ?>>着手中</option>
                           <option value="2"  <?php if($tasks->status == "2"): ?>selected<?php endif ?>>完了</option>
               </div>
+
+
               <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
-              <button type="submit" class="btn btn-light">更新</button>
+              <button type="submit" class="btn btn-light float-right">更新</button>
+
          </form>
-      </div>
     </div>
   </div>
   <script src="{{ asset('/js/expense.js') }}"></script>

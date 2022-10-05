@@ -11,7 +11,7 @@
         </ul>
     </div>
 @endif
-<div class="container-fluid">
+<div class="col-md-6">
 
   <h1>who is your partner?</h1>
 <div class="row">

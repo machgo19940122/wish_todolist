@@ -1,15 +1,17 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="container">
-    <h1>todo list</h1>
-    <div>
+<h1>todo list</h1>
+<div class="mw-50">
+ 
+
+    <div class="">
       <button class="btn">
         <a href="{{ route('td_edit', ['task_id' => $tasks->id]) }}">edit</a>
       </button>
     </div>
-    <div class="row">
-    <div class="col col-md-offset-3 col-md-6">
+
+    <div class="col-md-6">
               <div class="form-group">
                 <label for="title">タイトル</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $tasks->title }}" readonly/>
@@ -52,7 +54,6 @@
                           <option value="1"  <?php if($tasks->status == "1"): ?>selected<?php endif ?>>着手中</option>
                           <option value="2"  <?php if($tasks->status == "2"): ?>selected<?php endif ?>>完了</option>
                 </div>
-        </div>
       </div>
     </div>
 

@@ -1,8 +1,8 @@
 @extends('common/header_side')
 
 @section('content')
-  <div class="container">
-    <h1>wish list</h1>
+<h1>wish list</h1>
+<div class="">
     <form action="{{ route('delete_wish_task', ['task_id' => $tasks->id])}}" method="POST">
                                    @csrf 
                                    {{ method_field('DELETE') }}
@@ -11,8 +11,9 @@
                                    </button>
       </form>
 
-    <div class="row">
-      <div class="col col-md-6">
+
+   
+      <div class="col-sm-6">
        
                 <form action="" method="POST">
                     @csrf
@@ -56,9 +57,8 @@
                     </div>
                 
                     <input  name ="folder_id"value="{{$tasks->folder_id}}" hidden>
-                    <button type="submit" class="btn btn-light">更新</button>
+                    <button type="submit" class="btn btn-light float-right">更新</button>
               </form> 
-            </div>
       </div>
   </div>
   <script src="{{ asset('/js/expense.js') }}"></script>

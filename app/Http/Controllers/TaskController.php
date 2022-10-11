@@ -192,6 +192,7 @@ public function edit_todo_task(int $task_id, Request $request)
     $task->save();
 
     // 3
+
     return redirect()->route('todo_tasks.index', [
         'category' => 1,
         'id'=>$request->folder_id,
@@ -228,10 +229,17 @@ public function more_detail_todo(int $task_id){
 //td削除
 public function delete_td_task(int $task_id)
 {
+
+    $todo_task=TdTask::where('id','=',$task_id)->first();
+
     // 1
     TdTask::where('id','=',$task_id)->delete();
+
     // 3
-    return redirect()->route('top');
+    return redirect()->route('todo_tasks.index', [
+        'category' => 1,
+        'id'=>$todo_task->folder_id,
+    ]);
 }
 
 //wishのタスク編集処理
@@ -256,11 +264,16 @@ public function edit_wish_task(int $task_id, Request $request)
     ]);
 }
 
-//td削除
+//wish削除
 public function delete_wish_task(int $task_id)
-{
+{   $wish_task=WishTask::where('id','=',$task_id)->first();
+    
     WishTask::where('id','=',$task_id)->delete();
-    return redirect()->route('top');
+
+    return redirect()->route('wish_tasks.index', [
+        'category' => 0,
+        'id'=>$wish_task->folder_id,
+    ]);
 }
 
 }

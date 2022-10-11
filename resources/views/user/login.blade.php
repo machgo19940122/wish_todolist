@@ -1,7 +1,7 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="side_margin_adjust">
+<div class="side_margin_adjust col-md-6">
                 <div>
                     <h1>login</h1></div>
                     @if(isset($login_error))
@@ -10,8 +10,15 @@
                     </div>
                     @endif
                 <div>
-
+                    <div class="">
+                        企業様
+                        以下のIDとパスワードをご利用いただけます。</br>
+                       email: test@example.com <br>
+                       pass:test
+                    </div>
              <form method="POST" action="{{route('signin')}}" class="form-group">
+
+
                         <div class="mb-3">
                             <label class="form-label">email</label>
                             <input id="email" name="email" type="email" name="email" class="form-control" maxlength="50" required autofocus>

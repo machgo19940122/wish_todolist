@@ -14,7 +14,14 @@
 @endif
 
 <div class="side_margin_adjust">
-                <div><h1>get your id to start !</h1></div>
+    <div><h1>get your id to start !</h1></div>
+    
+                        <div class="">
+                            企業様<br>
+                            以下のIDとパスワードをご利用いただけます。</br>
+                           email: test@example.com <br>
+                           pass:test
+                        </div>
                         <form method="POST" action="{{ route('postsignup') }}" class="form-group" >
                                 <div class="mb-5">
                                     <label for="text" class="">名前</label>

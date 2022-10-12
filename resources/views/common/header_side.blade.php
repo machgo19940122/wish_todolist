@@ -33,6 +33,7 @@
     </nav>
   </header>
 
+  
   <main>  
     <div class="side w-md-15" id="side_bar">  
       

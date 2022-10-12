@@ -4,6 +4,11 @@
 
 <div class="container-fluid width100">
      <h1>wish list</h1>
+     <div>
+     <?php if("0" == $current_folder_id): ?>
+     ※フォルダーを選択してください
+      <?php endif ?>
+     </div>
    <div class="row">
       <div class="col col-md-4">
             <nav class="panel panel-default">
@@ -17,6 +22,12 @@
                         <table class="table">
                           <tbody>
                             <tr>
+                            <td>
+                              <?php if($folder->id == $current_folder_id): ?>
+                                <i class="fa-solid fa-check"></i><?php endif ?>
+
+                              </td>
+                              <td>
                               <td>
                                 <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}">
                                   {{ $folder->title }}</a>

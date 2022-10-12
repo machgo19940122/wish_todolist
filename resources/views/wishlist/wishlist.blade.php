@@ -58,8 +58,8 @@
                       <thead>
                       <tr>
                         <th>やること</th>
-                        <th>期限</th>
-                        <th>状況</th>
+                        <th>@sortablelink('deadline', 'deadline')</th>
+                        <th>@sortablelink('status', 'status')</th>
                         <!-- <th>URL</th>
                         <th>コメント</th>
                         <th>予算</th>

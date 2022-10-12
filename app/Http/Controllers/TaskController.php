@@ -62,7 +62,7 @@ class TaskController extends Controller
             }else{
                 $folders = Folder::whereCategory(0)->where('user_id','=',$user_id)->get();
             }
-        $tasks = WishTask::where('folder_id','=',$current_folder_id)->get();
+        $tasks = WishTask::sortable()->where('folder_id','=',$current_folder_id)->get();
        return view('wishlist/wishlist',
        [
            'folders'=>$folders,
@@ -87,7 +87,7 @@ class TaskController extends Controller
         }
        
                            
-       $tasks = TdTask::where('folder_id','=',$current_folder_id)->get();
+       $tasks = TdTask::sortable()->where('folder_id','=',$current_folder_id)->get();
 
        return view('todolist/todolist',
        [

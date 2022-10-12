@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable; 
 
 
 class TdTask extends Model
@@ -51,6 +52,7 @@ class TdTask extends Model
 
 
 
+    use Sortable;  // 追加
 
 
 }

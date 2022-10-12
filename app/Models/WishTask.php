@@ -3,6 +3,8 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable; // 追加
+
 
 class WishTask extends Model
 {
@@ -46,4 +48,6 @@ class WishTask extends Model
 
         return self::STATUS[$status]['class'];
     }
+    use Sortable;  // 追加
+
 }

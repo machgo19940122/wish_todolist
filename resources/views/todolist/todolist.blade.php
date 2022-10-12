@@ -50,13 +50,42 @@
               </a>
             </div>
           </div>
+        
+        <!-- <div class="mt-4">
+                        <form action="" method="GET">
+                     
+                         <div class="container">
+                             <div class="row mt-3">
+                                     <div class="col-3">
+                                         <select name="category" class="">
+                                            <option value="0">未着手</option>
+                                            <option value="1">着手中</option>
+                                            <option value="2">完了</option>
+                                         </select>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <input type="submit" value="絞り込み" class="">
+                                    </div>
+                             </div>
+
+                         </div>
+
+
+                        </form>
+          </div> -->
+
+
+        
+
+
 
           <table class="table">
             <thead>
             <tr>
               <th>やること</th>
-              <th>期限</th>
-              <th>状況</th>
+              <th>@sortablelink('due_date', 'duedate')</th>
+              <th>@sortablelink('status', 'status')</th>
               <!-- <th>URL</th>
               <th>担当</th>
               <th>コメント</th>

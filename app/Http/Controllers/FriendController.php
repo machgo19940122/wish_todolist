@@ -71,7 +71,7 @@ public function  add_friend(int $friend_id)
 {  
   //追加する友達に既に友達登録がないかを確認
   $check_friend=null;
-  $check_friend=Friend::where('follow_user_id','=',$friend_id)->get();
+  $check_friend=Friend::where('follow_user_id','=',$friend_id)->first();
   
   if($friend_id === session('id')){
     //自分のIDを追加した場合
@@ -79,13 +79,14 @@ public function  add_friend(int $friend_id)
     return redirect()->route('search_friend', [
       'keyword' => session('search_keyword'),
   ]);
-  }elseif(!isset($check_friend)){
+  }elseif(!empty($check_friend)){
     //既に友達のいるIDを追加しようとした場合
     Session::flash('flash_message_2', 'このユーザーは既に他の人と共有しています。');
     return redirect()->route('search_friend', [
       'keyword' => session('search_keyword'),
      ]);
   }else{
+    //友達追加処理
     $add_friend_1 = new Friend();
     $add_friend_1 -> follow_user_id = $friend_id;
     $add_friend_1 -> followed_user_id = session('id');

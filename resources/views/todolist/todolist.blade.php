@@ -1,7 +1,9 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="container-fluid width100">
+<div class="w-90 center-block">
+
+<div class="container-fluid">
 <h1>to do list</h1>
 <div>
      <?php if("0" == $current_folder_id): ?>
@@ -23,13 +25,18 @@
                               <td>
                               <?php if($folder->id == $current_folder_id): ?>
                                 <i class="fa-solid fa-check"></i><?php endif ?>
-
                               </td>
                               <td>
-                                  <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
-                                  >{{ $folder->title }}</a>
+                                <a href="{{ route('todo_tasks.index', ['id' => $folder->id,'category'=>'1']) }}" 
+                                >{{ $folder->title }}</a>
                               </td>
-                                
+                              
+                              <td>
+                                <?php  if($folder->type==1 &&$check_friend!=NULL):?>
+                                  <i class="fa-solid fa-lock"></i>
+                                <?php endif?>
+  
+                              </td>
                               <td>
                                   <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" class="float-right">編集</a>
                                   </td>
@@ -117,4 +124,8 @@
                     toastr.warning('{{ session('flash_message_6') }}');});
   @endif
   </script>
+
+
+
+</div>
 @endsection

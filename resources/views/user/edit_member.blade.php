@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<div class="col-md-6">
+<div class="w-50 center-block">
                     <div><h1>edit your infomation </h1></div>
                      <form method="POST" action="{{route('edit_member',$user->id)}}" >
                    

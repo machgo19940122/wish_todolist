@@ -1,19 +1,25 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Folder;
+use App\Models\Friend;
 use App\Models\TdTask;
 use App\Models\WishTask;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateFolder;
+use Session;
 
 class FolderController extends Controller
 {
 
     //フォルダー画面表示・カテゴリーparamを取得
     public function get_add_folder($category){
+        $user_id=session('id');
+        $check_friend=Friend::where('follow_user_id','=',$user_id)->first();
+
         $category = $category;
         return view('folder', [
-            'category'=>$category
+            'category'=>$category,
+            'check_friend'=>$check_friend,
           ]);
     }
 
@@ -23,10 +29,16 @@ class FolderController extends Controller
             $this->validate($request,[
                 'title' => 'required',
             ]);
+
         $folder = new Folder();
         $folder -> title = $request -> title;
         $folder -> category = $request -> category;
         $folder -> user_id = session('id');
+        $folder->type=$request->type;
+
+        if($request->type===Null){
+            $folder->type='0';
+        }
         $folder->save();
 
         if($request->category === "0"){

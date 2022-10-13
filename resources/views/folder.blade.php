@@ -27,9 +27,18 @@
             @csrf
             <div class="form-group">
               <label for="title">フォルダ名</label>
-
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" >
-              </div>
+
+              @if(!empty($check_friend))
+                <label for="type">タイプ</label>
+                <h10></h10>
+                <select name="type" class="form-control">
+                      <option value="0" selected>パートナーと共有する</option>        
+                      <option value="1">パートナー共有しない</option>        
+                </select>
+              @endif
+
+            </div>
                   <input name="category" id="title" value="{{$category}}" hidden> 
               <div class="text-right">
                 <button type="submit" class="btn btn-light">保存</button>

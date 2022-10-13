@@ -49,7 +49,6 @@ class TaskController extends Controller
         
     }
 
-
     //wishlistのtaskとfolderを取得
     public function get_wish_folder(int $category,int $id){
         $category = $category;
@@ -58,7 +57,10 @@ class TaskController extends Controller
         $friend=Friend::where('follow_user_id','=',$user_id)->where('status','=','active')->first();
         //自分と友達のフォルダーを取得
         if(!empty($friend)){
-            $folders = Folder::whereCategory(0)->whereIn('user_id',[$user_id,$friend->followed_user_id])->get();
+        // $folders = Folder::whereCategory(0)->whereIn('user_id',[$user_id,$friend->followed_user_id])->get();
+
+         $folders = Folder::whereCategory(0)->where('user_id','=',$user_id)->orwhere('category','=','0')->where('user_id','=',$friend->followed_user_id)->where('type','=','0')->get();
+
             }else{
                 $folders = Folder::whereCategory(0)->where('user_id','=',$user_id)->get();
             }
@@ -67,7 +69,8 @@ class TaskController extends Controller
        [
            'folders'=>$folders,
            'tasks'=>$tasks,
-           'current_folder_id'=>$current_folder_id
+           'current_folder_id'=>$current_folder_id,
+           'check_friend'=>$friend
         ]);
    }
 
@@ -81,7 +84,7 @@ class TaskController extends Controller
         $friend=Friend::where('follow_user_id','=',$user_id)->where('status','=','active')->first();
         //自分のフォルダーと友達フォルダー
         if(!empty($friend)){
-             $folders = Folder::whereCategory(1)->whereIn('user_id',[$user_id,$friend->followed_user_id])->get();
+            $folders = Folder::whereCategory(1)->where('user_id','=',$user_id)->orwhere('category','=','1')->where('user_id','=',$friend->followed_user_id)->where('type','=','0')->get();
         }else{
             $folders = Folder::whereCategory(1)->where('user_id','=',$user_id)->get();
         }
@@ -93,7 +96,8 @@ class TaskController extends Controller
        [
            'folders'=>$folders,
            'tasks'=>$tasks,
-           'current_folder_id'=>$current_folder_id
+           'current_folder_id'=>$current_folder_id,
+           'check_friend'=>$friend
         ]);
    }
 

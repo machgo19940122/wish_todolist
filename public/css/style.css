@@ -65,6 +65,12 @@ a:hover{
   padding-left:20%;
 }
 
+@media screen and (max-width:600px){
+  .side_margin{
+    padding-left:10%;
+  }
+}
+
 .side_margin_adjust{
   margin-right:20%;
 }

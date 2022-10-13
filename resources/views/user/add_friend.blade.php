@@ -11,28 +11,46 @@
         </ul>
     </div>
 @endif
-<div class="col-md-6">
 
+
+
+<div class="w-50 center-block">
   <h1>who is your partner?</h1>
-<div class="row">
+  
+  @if(!empty($no_friend_parameter))
         <div class="">
             <h6>※１アカウントに対して１人、共有するパートナーを設定できます。</h6>
         </div>
 
-          @if(!empty($no_friend_parameter))
-         <form action="{{route('search_friend')}}" method="GET">
-                    <div class="w-50">
-                          <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" >
-                          <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-         </form>   
         
-
-           <div class="my-5">※まだ登録されていません。</div>
-
+        <form action="{{route('search_friend')}}" method="GET" class="">
+          <div class="">
+            
+            
+            <div class="">
+              <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" >
+            </div>
+            
+            <div class="float-right">
+              <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            
+          </div>
+          
+             <div class="my-5">
+               ※まだ登録されていません。
+             </div>
+               
+          </form>   
+      </div>
 
            @else
-          <table class="table">
+
+
+       
+        <div class="mt-5">
+
+          <table class="table w-100">
             <thead>
             <tr>
               <th>ID</th>
@@ -45,19 +63,21 @@
                 <td>{{$friend_name}}</td>
                 <td>
                 <form method="post" action="{{ route('delete_friend', ['id'=>session('id')]) }}">
-                <button type="submit" class="btn  btn-light">
+                <button type="submit" class="btn  btn-light ">
                                     解除
                                 </button>
                                 {{ csrf_field() }}
                  </td>
                 </form>
-               
               </tr>
             </tbody>
           </table>
+
+
+        </div>
+    
           @endif
-      </div>
-    </div>
-  </div>
+    
+
 
 @endsection

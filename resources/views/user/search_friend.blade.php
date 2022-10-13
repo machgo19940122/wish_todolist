@@ -1,17 +1,30 @@
 @extends('common/header_side')
 
 @section('content')
-<div class="col-md-6">
+<div class="w-50 center-block">
+
   <h1>who is your partner?</h1>
   <form action="{{route('search_friend')}}" method="GET" class="">
-              <input type="search" name="keyword"      
-                class="form-control rounded w-50" placeholder="Search" aria-label="Search" aria-describedby="search-addon" 
-                >
-              <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass "></i></button> 
+
+      <div class="row">
+        <div class="">
+          <input type="search" name="keyword"      
+            class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" 
+            >
+        </div>
+
+        <div class="float-right">
+
+          <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass "></i></button> 
+
+        </div>
+      </div>
   </form>     
 
 
   <div class="panel panel-default">
+
+
       <table class="table">
         <thead>
             <tr>
@@ -42,9 +55,11 @@
                 </tr>
         </tbody>
       </table>
+
+    </div>
      
  
-</div>
+
 
 
     <!-- フラッシュメッセージ -->
@@ -61,4 +76,5 @@
                                toastr.warning('{{ session('flash_message_2') }}'); });
            @endif
        </script>
+</div>
 @endsection

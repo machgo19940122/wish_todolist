@@ -56,7 +56,12 @@
     </div>
 
     <div class="w-md-85 side_margin">
-      @yield('content')
+   
+
+
+        @yield('content')
+
+  
     </div>
   </main>
     

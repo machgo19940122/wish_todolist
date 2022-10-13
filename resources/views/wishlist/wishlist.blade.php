@@ -27,12 +27,18 @@
                                 <i class="fa-solid fa-check"></i><?php endif ?>
 
                               </td>
-                              <td>
+                              
                               <td>
                                 <a href="{{ route('wish_tasks.index', ['id' => $folder->id,'category'=>'0']) }}">
                                   {{ $folder->title }}</a>
                                 </td>
                                 
+                                <td>
+                                <?php  if($folder->type==1 &&$check_friend!=NULL):?>
+                                  <i class="fa-solid fa-lock"></i>
+                                <?php endif?>
+  
+                              </td>
                                 <td>
                                   <a href="{{ route('get_edit_folder', ['folder_id' => $folder->id]) }}" class="float-right">編集</a>
                                 </td>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('title',20);
             $table->integer('category')->index()->comment('0=wish,1=td');
+            $table->integer('type')->comment('0=共有,1=非共有')->nullable;
             $table->timestamps();
         });
     }

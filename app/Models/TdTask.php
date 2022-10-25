@@ -48,11 +48,10 @@ class TdTask extends Model
 
         return self::STATUS[$status]['class'];
     }
-
-
-
-
     use Sortable;  // 追加
 
+    public function folder(){
+        return $this->belongsTo('App\Models\Folder');
+    }
 
 }

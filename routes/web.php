@@ -110,3 +110,11 @@ Route::get('/search_friend', [App\Http\Controllers\FriendController::class,'sear
 
 //お友達追加画面表示
 Route::post('/search_friend/{friend_id}', [App\Http\Controllers\FriendController::class,'add_friend'])->name('add_friend')->middleware('login');
+
+
+//お友達追加画面表示
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class,'get_calendar'])->name('get_calendar')->middleware('login');
+
+//カレンダーからの日別一覧
+Route::get('/list_ofthedate/{date}', [App\Http\Controllers\CalendarController::class,'get_list_oftheday'])->name('listoftheday')->middleware('login');
+

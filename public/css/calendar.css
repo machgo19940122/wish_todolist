@@ -1,0 +1,36 @@
+.day-blank {
+	background-color: #efefef;
+}
+.day-sun .day{
+	color:pink;
+}
+.day-sat .day{
+	color: rgb(138, 138, 245);
+}
+.calendar table td {	
+	padding: 3px;
+	border: solid 1px #999;
+}
+.calendar table td:before {
+	display: block;
+	float: left;
+	height: 50px;
+	content: "";
+}
+.calendar table td .day {
+	margin-bottom: 0;
+}
+.calendar table th {
+	text-align: center;
+	border: solid 1px #999;
+}
+
+
+.day-close {
+	background-color:black;
+}
+
+.calendar{
+	background-color:white;
+	color:black;
+}

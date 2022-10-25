@@ -50,4 +50,7 @@ class WishTask extends Model
     }
     use Sortable;  // 追加
 
+    public function folder(){
+        return $this->belongsTo('App\Models\Folder');
+    }
 }

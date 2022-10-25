@@ -5,7 +5,7 @@ use App\Models\Folder;
 use App\Models\Friend;
 use App\Models\TdTask;
 use App\Models\WishTask;
-use App\calendar\CalendarView;
+use App\Calendar\CalendarView;
 use App\List\Listoftheday;
 
 use Illuminate\Http\Request;
